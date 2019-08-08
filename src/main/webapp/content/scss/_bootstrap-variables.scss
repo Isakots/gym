@@ -4,3 +4,22 @@
 * https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss can be overwritten here
 * Make sure not to add !default to values here
 */
+
+$theme-colors: (
+  'danger': #ff4136,
+  'primary': black,
+  'success': #aaaaaa
+);
+$orange: #fd7e14;
+
+$link-color: $orange;
+$random: #654859;
+
+.bg-primary {
+  .navbar-nav .active > .nav-link {
+    color: $orange !important;
+  }
+}
+
+$navbar-dark-color: $random;
+$navbar-dark-hover-color: $random;
