@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "hu.martos.gym",
+      "nativeLanguage": "hu"
+    },
+    "jhipsterVersion": "6.2.0",
+    "applicationType": "monolith",
+    "baseName": "gym",
+    "packageName": "hu.martos.gym",
+    "packageFolder": "hu/martos/gym",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NDY2ODkyMTdkNWJhYzRlMTE3MmJkNmQxODE1OTFmODhjYWRkMmMxZjg1N2UxYzlhZmNmNjRkOGU2OTJmNmFmMjNhMGZjMjc4YmY4MjAzZWY1NjYwYjlmMzBhMTE1ZmRiZmEyOTc4ZWFlZTZmYjk2OTIwODUzNzdlNjVjZDY4NjQ=",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "darkly",
+    "clientThemeVariant": "primary",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "hu",
+    "languages": ["hu", "en"],
+    "blueprints": []
+  }
+}
