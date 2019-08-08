@@ -1,17 +1,18 @@
 package hu.martos.gym.config;
 
-import java.time.Duration;
-
-import org.ehcache.config.builders.*;
-import org.ehcache.jsr107.Eh107Configuration;
-
-import org.hibernate.cache.jcache.ConfigSettings;
 import io.github.jhipster.config.JHipsterProperties;
-
+import org.ehcache.config.builders.CacheConfigurationBuilder;
+import org.ehcache.config.builders.ExpiryPolicyBuilder;
+import org.ehcache.config.builders.ResourcePoolsBuilder;
+import org.ehcache.jsr107.Eh107Configuration;
+import org.hibernate.cache.jcache.ConfigSettings;
 import org.springframework.boot.autoconfigure.cache.JCacheManagerCustomizer;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernatePropertiesCustomizer;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.time.Duration;
 
 @Configuration
 @EnableCaching
@@ -43,6 +44,7 @@ public class CacheConfiguration {
             createCache(cm, hu.martos.gym.domain.User.class.getName());
             createCache(cm, hu.martos.gym.domain.Authority.class.getName());
             createCache(cm, hu.martos.gym.domain.User.class.getName() + ".authorities");
+            createCache(cm, hu.martos.gym.domain.Tool.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
