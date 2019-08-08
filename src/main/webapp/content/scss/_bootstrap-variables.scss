@@ -10,16 +10,13 @@ $theme-colors: (
   'primary': black,
   'success': #aaaaaa
 );
-$orange: #fd7e14;
 
+$orange: #fd7e14;
 $link-color: $orange;
-$random: #654859;
+$dropdown-link-hover-bg: $orange;
 
 .bg-primary {
   .navbar-nav .active > .nav-link {
     color: $orange !important;
   }
 }
-
-$navbar-dark-color: $random;
-$navbar-dark-hover-color: $random;
