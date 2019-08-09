@@ -1,0 +1,23 @@
+{
+  "gymApp": {
+    "tool": {
+      "home": {
+        "title": "Eszközök",
+        "createLabel": "Eszköz hozzáadása",
+        "createOrEditLabel": "Hozzon létre, vagy módosítson eszközt",
+        "notFound": "Eszöz nem található."
+      },
+      "created": "Egy új eszköz lett létrehozva {{ param }} azonosítóval",
+      "updated": "Az eszköz módosítva lett {{ param }} azonosítóval",
+      "deleted": "Az eszköz törölve lett {{ param }} azonosítóval",
+      "delete": {
+        "question": "Biztos benne, hogy törölni szeretné az Toolt {{ id }} azonosítóval?"
+      },
+      "detail": {
+        "title": "Eszköz"
+      },
+      "name": "Név",
+      "quantity": "Mennyiség"
+    }
+  }
+}
