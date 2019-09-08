@@ -1,7 +1,10 @@
 <div>
     <h2 id="page-heading">
         <span jhiTranslate="gymApp.tool.home.title">Tools</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tool" [routerLink]="['/tool/new']">
+        <button id="jh-create-entity"
+                class="btn btn-primary float-right jh-create-entity create-tool"
+                [routerLink]="['/tool/new']"
+                *jhiHasAnyAuthority="'ROLE_MEMBER'">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span  jhiTranslate="gymApp.tool.home.createLabel">
             Create a new Tool
@@ -37,7 +40,7 @@
                         <button type="submit"
                                 [routerLink]="['/tool', tool.id, 'edit']"
                                 class="btn btn-primary btn-sm"
-                                *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                                *jhiHasAnyAuthority="'ROLE_MEMBER'">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
                         </button>
@@ -46,7 +49,7 @@
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
                                 class="btn btn-danger btn-sm"
-                                *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                                *jhiHasAnyAuthority="'ROLE_MEMBER'">
                             <fa-icon [icon]="'times'"></fa-icon>
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                         </button>

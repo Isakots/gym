@@ -1,15 +1,15 @@
 {
   "login": {
-    "title": "Hitelesítés",
+    "title": "Bejelentkezés",
     "form": {
       "password": "Jelszó",
-      "password.placeholder": "Az Ön jelszava",
+      "password.placeholder": "••••••••",
       "rememberme": "Automatikus belépés",
       "button": "Belépés"
     },
     "messages": {
       "error": {
-        "authentication": "<strong>Hitelesítés nem sikerült!</strong> Kérjük ellenörizze, hogy helyesen adta meg nevét és jelszavát, és próbálja újra."
+        "authentication": "<strong>Bejelentkezés nem sikerült.</strong> Próbálja újra!"
       }
     },
     "password": {

@@ -32,19 +32,21 @@
         "database": "Adatbázis",
         "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
       },
-      "language": "Nyelvek"
+      "language": "Nyelv"
     },
     "form": {
-      "username.label": "Azonosító",
-      "username.placeholder": "Az Ön felhasználói neve",
-      "currentpassword.label": "Current password",
-      "currentpassword.placeholder": "Current password",
+      "username.label": "Felhasználónév",
+      "username.placeholder": "Felhasználónév",
+      "password.label": "Jelszó",
+      "password.placeholder": "••••••••",
+      "currentpassword.label": "Jelenlegi jelszó",
+      "currentpassword.placeholder": "••••••••",
       "newpassword.label": "Új jelszó",
-      "newpassword.placeholder": "Új jelszava",
-      "confirmpassword.label": "Új jelszó megerősítése",
-      "confirmpassword.placeholder": "Írja be újra a jelszavát",
-      "email.label": "Email",
-      "email.placeholder": "Az Ön email címe"
+      "newpassword.placeholder": "••••••••",
+      "confirmpassword.label": "Jelszó megerősítése",
+      "confirmpassword.placeholder": "••••••••",
+      "email.label": "E-mail",
+      "email.placeholder": "E-mail cím"
     },
     "messages": {
       "info": {
@@ -64,13 +66,13 @@
       "validate": {
         "newpassword": {
           "required": "A jelszó kötelező.",
-          "minlength": "A jelszó legalább 6 karakterből kell, hogy álljon",
+          "minlength": "A jelszó legalább 8 karakterből kell, hogy álljon",
           "maxlength": "A jelszó nem lehet hosszabb mint 50 karakter",
           "strength": "A jelszó bonyolultsága:"
         },
         "confirmpassword": {
           "required": "A jelszó megerősítés kötelező.",
-          "minlength": "A jelszó megerősítés legalább 6 betűből kell, hogy álljon",
+          "minlength": "A jelszó megerősítés legalább 8 betűből kell, hogy álljon",
           "maxlength": "A jelszó megerősítés nem lehet hosszabb mint 50 betű"
         },
         "email": {

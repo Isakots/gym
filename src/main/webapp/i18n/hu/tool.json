@@ -4,14 +4,14 @@
       "home": {
         "title": "Eszközök",
         "createLabel": "Eszköz hozzáadása",
-        "createOrEditLabel": "Hozzon létre, vagy módosítson eszközt",
+        "createOrEditLabel": "Új eszköz hozzáadása/módosítása",
         "notFound": "Eszöz nem található."
       },
-      "created": "Egy új eszköz lett létrehozva {{ param }} azonosítóval",
-      "updated": "Az eszköz módosítva lett {{ param }} azonosítóval",
-      "deleted": "Az eszköz törölve lett {{ param }} azonosítóval",
+      "created": "{{ param }} létrehozva",
+      "updated": "{{ param }} módosítva",
+      "deleted": "{{ param }} törölve",
       "delete": {
-        "question": "Biztos benne, hogy törölni szeretné az Toolt {{ id }} azonosítóval?"
+        "question": "Biztos, hogy törölni szeretné?"
       },
       "detail": {
         "title": "Eszköz"

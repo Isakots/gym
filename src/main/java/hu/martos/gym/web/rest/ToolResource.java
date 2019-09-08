@@ -54,7 +54,7 @@ public class ToolResource {
         }
         Tool result = toolRepository.save(tool);
         return ResponseEntity.created(new URI("/api/tools/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getName()))
             .body(result);
     }
 
@@ -76,7 +76,7 @@ public class ToolResource {
         }
         Tool result = toolRepository.save(tool);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, tool.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, tool.getName()))
             .body(result);
     }
 

@@ -3,13 +3,13 @@
     "title": "Sign in",
     "form": {
       "password": "Password",
-      "password.placeholder": "Your password",
+      "password.placeholder": "••••••••",
       "rememberme": "Remember me",
       "button": "Sign in"
     },
     "messages": {
       "error": {
-        "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again."
+        "authentication": "<strong>Failed to sign in.</strong> Try again!"
       }
     },
     "password": {

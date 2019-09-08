@@ -24,7 +24,7 @@
             <button type="button"
                     [routerLink]="['/tool', tool.id, 'edit']"
                     class="btn btn-primary"
-                    *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                    *jhiHasAnyAuthority="'ROLE_MEMBER'">
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
             </button>
         </div>

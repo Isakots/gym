@@ -18,9 +18,9 @@
       },
       "messages": {
         "info": "Válasszon új jelszót",
-        "success": "<strong>Az Ön jelszava meg lett változtatva.</strong> Kérjük ",
+        "success": "<strong>Az Ön jelszava meg lett változtatva.</strong>",
         "keymissing": "A jelszó visszaállító kulcs hiányzik.",
-        "error": "Az Ön jelszavát nem lehetett átállítani. Kérjük vegye figyelembe, hogy a jelszó visszaállító kulcs csak 24 óráig érvényes."
+        "error": "Jelszó visszaállítása nem sikerült. Kérjük vegye figyelembe, hogy a jelszó visszaállító kulcs csak 24 óráig érvényes."
       }
     }
   }
