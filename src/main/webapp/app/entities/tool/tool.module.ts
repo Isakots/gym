@@ -26,7 +26,7 @@ const ENTITY_STATES = [...toolRoute, ...toolPopupRoute];
 export class GymToolModule {
   constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
     this.languageHelper.language.subscribe((languageKey: string) => {
-      if (languageKey) {
+      if (languageKey !== undefined) {
         this.languageService.changeLanguage(languageKey);
       }
     });

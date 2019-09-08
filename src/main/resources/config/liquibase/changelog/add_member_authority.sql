@@ -1,0 +1,1 @@
+INSERT INTO jhi_authority VALUES ('ROLE_MEMBER')

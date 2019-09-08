@@ -46,7 +46,7 @@ public class ToolResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/tools")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_MEMBER')")
     public ResponseEntity<Tool> createTool(@Valid @RequestBody Tool tool) throws URISyntaxException {
         log.debug("REST request to save Tool : {}", tool);
         if (tool.getId() != null) {
@@ -68,7 +68,7 @@ public class ToolResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/tools")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_MEMBER')")
     public ResponseEntity<Tool> updateTool(@Valid @RequestBody Tool tool) throws URISyntaxException {
         log.debug("REST request to update Tool : {}", tool);
         if (tool.getId() == null) {
@@ -87,6 +87,7 @@ public class ToolResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of tools in body.
      */
     @GetMapping("/tools")
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     public List<Tool> getAllTools() {
         log.debug("REST request to get all Tools");
         return toolRepository.findAll();
@@ -99,6 +100,7 @@ public class ToolResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the tool, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/tools/{id}")
+    @PreAuthorize("hasAuthority('ROLE_USER')")
     public ResponseEntity<Tool> getTool(@PathVariable Long id) {
         log.debug("REST request to get Tool : {}", id);
         Optional<Tool> tool = toolRepository.findById(id);
@@ -112,7 +114,7 @@ public class ToolResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/tools/{id}")
-    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_MEMBER')")
     public ResponseEntity<Void> deleteTool(@PathVariable Long id) {
         log.debug("REST request to delete Tool : {}", id);
         toolRepository.deleteById(id);
