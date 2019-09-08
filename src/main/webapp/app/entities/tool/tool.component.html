@@ -1,0 +1,59 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gymApp.tool.home.title">Tools</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tool" [routerLink]="['/tool/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gymApp.tool.home.createLabel">
+            Create a new Tool
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="tools?.length === 0">
+        <span jhiTranslate="gymApp.tool.home.notFound">No tools found</span>
+    </div>
+    <div class="table-responsive" *ngIf="tools?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="gymApp.tool.name">Name</span></th>
+            <th><span jhiTranslate="gymApp.tool.quantity">Quantity</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tool of tools ;trackBy: trackId">
+                <td>{{tool.name}}</td>
+                <td>{{tool.quantity}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/tool', tool.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tool', tool.id, 'edit']"
+                                class="btn btn-primary btn-sm"
+                                *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/tool', { outlets: { popup: tool.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm"
+                                *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

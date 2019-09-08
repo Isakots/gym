@@ -101,7 +101,7 @@ jhipster:
         token-validity-in-seconds: 86400
   metrics:
     logs: # Reports metrics in the logs
-      enabled: true
+      enabled: false
       report-frequency: 60 # in seconds
 
 # ===================================================================

@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: MY-CONFIG-1
+      author: csokasi.marcell
+      changes:
+        - sqlFile:
+            encoding: utf8
+            path: config/liquibase/changelog/add_member_authority.sql
