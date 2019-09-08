@@ -56,7 +56,7 @@ export const toolRoute: Routes = [
       tool: ToolResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_MEMBER'],
       pageTitle: 'gymApp.tool.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -68,7 +68,7 @@ export const toolRoute: Routes = [
       tool: ToolResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_MEMBER'],
       pageTitle: 'gymApp.tool.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -83,7 +83,7 @@ export const toolPopupRoute: Routes = [
       tool: ToolResolve
     },
     data: {
-      authorities: ['ROLE_ADMIN'],
+      authorities: ['ROLE_MEMBER'],
       pageTitle: 'gymApp.tool.home.title'
     },
     canActivate: [UserRouteAccessService],

@@ -1,12 +1,12 @@
 {
   "settings": {
-    "title": "Felhasználói beállítások [<strong>{{username}}</strong>]-nak",
+    "title": "Profil",
     "form": {
       "firstname": "Keresztnév",
-      "firstname.placeholder": "Az Ön keresztneve",
-      "lastname": "Családnév",
-      "lastname.placeholder": "Az Ön családneve",
-      "language": "Nyelvek",
+      "firstname.placeholder": "Keresztnév",
+      "lastname": "Vezetéknév",
+      "lastname.placeholder": "Vezetéknév",
+      "language": "Nyelv",
       "button": "Mentés"
     },
     "messages": {

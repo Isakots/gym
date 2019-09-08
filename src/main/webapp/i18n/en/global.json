@@ -36,15 +36,17 @@
     },
     "form": {
       "username.label": "Username",
-      "username.placeholder": "Your username",
+      "username.placeholder": "Username",
+      "password.label": "Password",
+      "password.placeholder": "••••••••",
       "currentpassword.label": "Current password",
-      "currentpassword.placeholder": "Current password",
+      "currentpassword.placeholder": "••••••••",
       "newpassword.label": "New password",
-      "newpassword.placeholder": "New password",
-      "confirmpassword.label": "New password confirmation",
-      "confirmpassword.placeholder": "Confirm the new password",
-      "email.label": "Email",
-      "email.placeholder": "Your email"
+      "newpassword.placeholder": "••••••••",
+      "confirmpassword.label": "Password confirmation",
+      "confirmpassword.placeholder": "••••••••",
+      "email.label": "E-mail",
+      "email.placeholder": "E-mail address"
     },
     "messages": {
       "info": {
