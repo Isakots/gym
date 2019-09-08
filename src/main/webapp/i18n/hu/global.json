@@ -52,12 +52,12 @@
       "info": {
         "authenticated": {
           "prefix": "Ha be akar ",
-          "link": "lépni",
+          "link": "jelentkezzen be",
           "suffix": ", kipróbálás céljából használható felhasználók:<br/>- Adminisztrátor (azonosító=\"admin\" és a jelszó=\"admin\") <br/>- Felhasználó (azonosító=\"user\" és jelszó=\"user\")."
         },
         "register": {
-          "noaccount": "Nincs még hozzáférése?",
-          "link": "Regisztráljon"
+          "noaccount": "Nincs még fiókja?",
+          "link": "Regisztráljon!"
         }
       },
       "error": {
@@ -68,7 +68,7 @@
           "required": "A jelszó kötelező.",
           "minlength": "A jelszó legalább 8 karakterből kell, hogy álljon",
           "maxlength": "A jelszó nem lehet hosszabb mint 50 karakter",
-          "strength": "A jelszó bonyolultsága:"
+          "strength": "Jelszó bonyolultsága:"
         },
         "confirmpassword": {
           "required": "A jelszó megerősítés kötelező.",
@@ -76,10 +76,10 @@
           "maxlength": "A jelszó megerősítés nem lehet hosszabb mint 50 betű"
         },
         "email": {
-          "required": "Az email cím kötelező.",
-          "invalid": "A megadott email cím nem jó.",
-          "minlength": "Az email cím legalább 5 betüből kell, hogy álljon",
-          "maxlength": "Az email cím nem lehet hosszabb mint 50 betű"
+          "required": "Az e-mail cím kötelező.",
+          "invalid": "A megadott e-mail cím nem jó.",
+          "minlength": "Az e-mail cím legalább 5 betüből kell, hogy álljon",
+          "maxlength": "Az e-mail cím nem lehet hosszabb, mint 50 betű"
         }
       }
     },
