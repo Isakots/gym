@@ -6,15 +6,15 @@
         "button": "Reset password"
       },
       "messages": {
-        "info": "Enter the email address you used to register",
-        "success": "Check your emails for details on how to reset your password.",
+        "info": "Enter your e-mail address",
+        "success": "Check your email for link to reset your password.",
         "notfound": "<strong>Email address isn't registered!</strong> Please check and try again"
       }
     },
     "finish": {
       "title": "Reset password",
       "form": {
-        "button": "Validate new password"
+        "button": "Submit"
       },
       "messages": {
         "info": "Choose a new password",

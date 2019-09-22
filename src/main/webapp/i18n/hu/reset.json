@@ -6,19 +6,19 @@
         "button": "Jelszó visszaállítás"
       },
       "messages": {
-        "info": "Adja meg email címét, amivel regisztrált",
-        "success": "Email címére elküldtük a leírást, hogyan állíthatja vissza jelszavát.",
+        "info": "Adja meg email címét",
+        "success": "Email címére elküldtük a linket, mellyel új jelszót állíthat be.",
         "notfound": "<strong>Ezzel az email címmel nem regisztráltak!</strong> Kérjük ellenőrizze, és próbálja újra!"
       }
     },
     "finish": {
-      "title": "Jelszó állítás",
+      "title": "Jelszó visszaállítás",
       "form": {
-        "button": "Ellenőrizze új jelszavát"
+        "button": "Mentés"
       },
       "messages": {
         "info": "Válasszon új jelszót",
-        "success": "<strong>Az Ön jelszava meg lett változtatva.</strong>",
+        "success": "<strong>Jelszava meg lett változtatva.</strong>",
         "keymissing": "A jelszó visszaállító kulcs hiányzik.",
         "error": "Jelszó visszaállítása nem sikerült. Kérjük vegye figyelembe, hogy a jelszó visszaállító kulcs csak 24 óráig érvényes."
       }

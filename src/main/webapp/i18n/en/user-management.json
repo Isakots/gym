@@ -14,16 +14,16 @@
     "detail": {
       "title": "User"
     },
-    "login": "Login",
+    "fullName": "Full Name",
     "firstName": "First name",
     "lastName": "Last name",
-    "email": "Email",
+    "email": "E-mail address",
     "activated": "Activated",
     "deactivated": "Deactivated",
-    "profiles": "Profiles",
+    "authorities": "Authorities",
     "langKey": "Language",
     "createdBy": "Created by",
-    "createdDate": "Created date",
+    "createdDate": "Registration date",
     "lastModifiedBy": "Modified by",
     "lastModifiedDate": "Modified date"
   }

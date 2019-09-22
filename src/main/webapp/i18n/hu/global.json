@@ -4,10 +4,12 @@
     "browsehappy": "Ön <strong>elavult</strong> böngészőt használ. Kérjük <a href=\"http://browsehappy.com/?locale=hu\">frissítse böngészőjét</a> hogy javuljon a felhasználói élménye.",
     "menu": {
       "home": "Kezdőlap",
+      "loaning": "Kölcsönzés",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entitások",
         "tool": "Eszközök",
+        "article": "Article",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -35,8 +37,10 @@
       "language": "Nyelv"
     },
     "form": {
-      "username.label": "Felhasználónév",
-      "username.placeholder": "Felhasználónév",
+      "lastname.label": "Vezetéknév",
+      "lastname.placeholder": "Vezetéknév",
+      "firstname.label": "Keresztnév",
+      "firstname.placeholder": "Keresztnév",
       "password.label": "Jelszó",
       "password.placeholder": "••••••••",
       "currentpassword.label": "Jelenlegi jelszó",
@@ -46,29 +50,55 @@
       "confirmpassword.label": "Jelszó megerősítése",
       "confirmpassword.placeholder": "••••••••",
       "email.label": "E-mail",
-      "email.placeholder": "E-mail cím"
+      "email.placeholder": "E-mail cím",
+      "confirmEmail.label": "E-mail cím megerősítése",
+      "confirmEmail.placeholder": "E-mail cím",
+      "studentStatus.label": "Hallgatói jogviszony",
+      "institution.label": "Oktatási intzémény",
+      "institution.placeholder": "pl. BME",
+      "faculty.label": "Kar",
+      "faculty.placeholder": "pl. VBK",
+      "isCollegian.label": "Lakhatás",
+      "room.label": "Szobaszám",
+      "room.placeholder": "000"
     },
     "messages": {
       "info": {
         "authenticated": {
           "prefix": "Ha be akar ",
-          "link": "lépni",
+          "link": "jelentkezzen be",
           "suffix": ", kipróbálás céljából használható felhasználók:<br/>- Adminisztrátor (azonosító=\"admin\" és a jelszó=\"admin\") <br/>- Felhasználó (azonosító=\"user\" és jelszó=\"user\")."
         },
         "register": {
-          "noaccount": "Nincs még hozzáférése?",
-          "link": "Regisztráljon"
+          "noaccount": "Nincs még fiókja?",
+          "link": "Regisztráljon!"
         }
       },
       "error": {
         "dontmatch": "A jelszó és a jelszó megerősítés nem egyezik meg!"
       },
       "validate": {
+        "lastname": {
+          "required": "Vezetéknév megadása kötelező.",
+          "minlength": "Vezetéknév legalább 2 karakterből kell, hogy álljon",
+          "maxlength": "Vezetéknév nem lehet hosszabb mint 30 karakter"
+        },
+        "firstname": {
+          "required": "Keresztnév megadása kötelező.",
+          "minlength": "Keresztnév legalább 2 karakterből kell, hogy álljon",
+          "maxlength": "Keresztnév nem lehet hosszabb mint 30 karakter"
+        },
+        "password": {
+          "required": "A jelszó kötelező.",
+          "minlength": "A jelszó legalább 8 karakterből kell, hogy álljon",
+          "maxlength": "A jelszó nem lehet hosszabb mint 50 karakter",
+          "strength": "Jelszó bonyolultsága:"
+        },
         "newpassword": {
           "required": "A jelszó kötelező.",
           "minlength": "A jelszó legalább 8 karakterből kell, hogy álljon",
           "maxlength": "A jelszó nem lehet hosszabb mint 50 karakter",
-          "strength": "A jelszó bonyolultsága:"
+          "strength": "Jelszó bonyolultsága:"
         },
         "confirmpassword": {
           "required": "A jelszó megerősítés kötelező.",
@@ -76,10 +106,33 @@
           "maxlength": "A jelszó megerősítés nem lehet hosszabb mint 50 betű"
         },
         "email": {
-          "required": "Az email cím kötelező.",
-          "invalid": "A megadott email cím nem jó.",
-          "minlength": "Az email cím legalább 5 betüből kell, hogy álljon",
-          "maxlength": "Az email cím nem lehet hosszabb mint 50 betű"
+          "required": "Az e-mail cím kötelező.",
+          "invalid": "A megadott e-mail cím nem jó.",
+          "minlength": "Az e-mail cím legalább 5 betüből kell, hogy álljon",
+          "maxlength": "Az e-mail cím nem lehet hosszabb, mint 50 betű"
+        },
+        "confirmEmail": {
+          "required": "Az e-mail cím kötelező.",
+          "invalid": "A két email cím nem egyezik.",
+          "minlength": "Az e-mail cím legalább 5 betüből kell, hogy álljon",
+          "maxlength": "Az e-mail cím nem lehet hosszabb, mint 50 betű"
+        },
+        "studentStatus": {
+          "required": "Hallgatói jogviszony kiválasztása kötelező."
+        },
+        "institution": {
+          "required": "Intézmény megadása kötelező.",
+          "maxlength": "Az Intézmény nem lehet hosszabb, mint 4 betű."
+        },
+        "faculty": {
+          "required": "Kar megadása kötelező.",
+          "maxlength": "A Kar nem lehet hosszabb, mint 4 betű."
+        },
+        "isCollegian": {
+          "required": "Lakhatás kiválasztása kötelező."
+        },
+        "room": {
+          "required": "Szobaszám megadása kötelező."
         }
       }
     },
@@ -101,7 +154,7 @@
       "edit": "Szerkesztés",
       "open": "Megnyitás",
       "save": "Mentés",
-      "view": "Nézet"
+      "view": "Részletek"
     },
     "detail": {
       "field": "Mező",

@@ -11,19 +11,16 @@
     "delete": {
       "question": "Biztos benne, hogy törölni szeretné az {{ login }} azonosítóval rendelkező felhasználót?"
     },
-    "detail": {
-      "title": "Felhasználó"
-    },
-    "login": "Azonosító",
+    "fullName": "Teljes név",
     "firstName": "Keresztnév",
     "lastName": "Vezetéknév",
-    "email": "Email",
+    "email": "E-mail cím",
     "activated": "Aktivált",
     "deactivated": "Deaktivált",
-    "profiles": "Profil",
+    "authorities": "Jogok",
     "langKey": "Nyelv",
     "createdBy": "Létrehozó",
-    "createdDate": "Létrehozás dátuma",
+    "createdDate": "Regisztráció dátuma",
     "lastModifiedBy": "Módosította",
     "lastModifiedDate": "Módosítás dátuma"
   }

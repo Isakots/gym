@@ -8,10 +8,12 @@ import hu.martos.gym.service.MailService;
 import hu.martos.gym.service.UserService;
 import hu.martos.gym.service.dto.PasswordChangeDTO;
 import hu.martos.gym.service.dto.UserDTO;
-import hu.martos.gym.web.rest.errors.*;
+import hu.martos.gym.web.rest.errors.EmailAlreadyUsedException;
+import hu.martos.gym.web.rest.errors.EmailNotFoundException;
+import hu.martos.gym.web.rest.errors.InvalidPasswordException;
+import hu.martos.gym.web.rest.errors.LoginAlreadyUsedException;
 import hu.martos.gym.web.rest.vm.KeyAndPasswordVM;
 import hu.martos.gym.web.rest.vm.ManagedUserVM;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.*;
+import java.util.Optional;
 
 /**
  * REST controller for managing the current user's account.
@@ -118,10 +120,10 @@ public class AccountResource {
     public void saveAccount(@Valid @RequestBody UserDTO userDTO) {
         String userLogin = SecurityUtils.getCurrentUserLogin().orElseThrow(() -> new AccountResourceException("Current user login not found"));
         Optional<User> existingUser = userRepository.findOneByEmailIgnoreCase(userDTO.getEmail());
-        if (existingUser.isPresent() && (!existingUser.get().getLogin().equalsIgnoreCase(userLogin))) {
+        if (existingUser.isPresent() && (!existingUser.get().getEmail().equalsIgnoreCase(userLogin))) {
             throw new EmailAlreadyUsedException();
         }
-        Optional<User> user = userRepository.findOneByLogin(userLogin);
+        Optional<User> user = userRepository.findOneByEmailIgnoreCase(userLogin);
         if (!user.isPresent()) {
             throw new AccountResourceException("User could not be found");
         }
