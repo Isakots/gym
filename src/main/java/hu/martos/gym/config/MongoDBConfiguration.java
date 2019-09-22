@@ -14,7 +14,6 @@ public class MongoDBConfiguration {
     private static final int MONGO_DB_PORT = 27017;
     private static final String MONGO_DB_URI = "root:root@localhost:27017/first-test-db";
 
-    //
 
     @Bean
     public MongoDbFactory mongoDbFactory() {

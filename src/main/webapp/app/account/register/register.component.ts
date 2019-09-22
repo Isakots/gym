@@ -1,6 +1,6 @@
-import { Component, OnInit, AfterViewInit, Renderer, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiLanguageService } from 'ng-jhipster';
 
@@ -21,10 +21,17 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   modalRef: NgbModalRef;
 
   registerForm = this.fb.group({
-    login: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50), Validators.pattern('^[_.@A-Za-z0-9-]*$')]],
+    firstname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+    lastname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
     email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
+    confirmEmail: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
     password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-    confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]]
+    confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+    studentStatus: ['', [Validators.required]],
+    institution: ['', [Validators.required, Validators.maxLength(4)]],
+    faculty: ['', [Validators.required, Validators.maxLength(4)]],
+    isCollegian: ['', [Validators.required]],
+    room: ['', [Validators.required]]
   });
 
   constructor(
@@ -41,18 +48,17 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#login'), 'focus', []);
+    this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#lastname'), 'focus', []);
   }
 
   register() {
     let registerAccount = {};
-    const login = this.registerForm.get(['login']).value;
     const email = this.registerForm.get(['email']).value;
     const password = this.registerForm.get(['password']).value;
     if (password !== this.registerForm.get(['confirmPassword']).value) {
       this.doNotMatch = 'ERROR';
     } else {
-      registerAccount = { ...registerAccount, login, email, password };
+      registerAccount = { ...registerAccount, email, password };
       this.doNotMatch = null;
       this.error = null;
       this.errorUserExists = null;

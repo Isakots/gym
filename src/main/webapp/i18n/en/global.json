@@ -9,6 +9,7 @@
       "entities": {
         "main": "Entities",
         "tool": "Tools",
+        "article": "Article",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -36,8 +37,10 @@
       "language": "Language"
     },
     "form": {
-      "username.label": "Username",
-      "username.placeholder": "Username",
+      "lastname.label": "Lastname",
+      "lastname.placeholder": "Lastname",
+      "firstname.label": "Firstname",
+      "firstname.placeholder": "Firstname",
       "password.label": "Password",
       "password.placeholder": "••••••••",
       "currentpassword.label": "Current password",
@@ -47,7 +50,17 @@
       "confirmpassword.label": "Password confirmation",
       "confirmpassword.placeholder": "••••••••",
       "email.label": "E-mail",
-      "email.placeholder": "E-mail address"
+      "email.placeholder": "E-mail address",
+      "confirmEmail.label": "E-mail confirmation",
+      "confirmEmail.placeholder": "E-mail address",
+      "studentStatus.label": "Student status",
+      "institution.label": "Institutiton",
+      "institution.placeholder": "eg. BME",
+      "faculty.label": "Faculty",
+      "faculty.placeholder": "eg. VBK",
+      "isCollegian.label": "Is Collegian?",
+      "room.label": "Room number",
+      "room.placeholder": "000"
     },
     "messages": {
       "info": {
@@ -65,22 +78,61 @@
         "dontmatch": "The password and its confirmation do not match!"
       },
       "validate": {
+        "lastname": {
+          "required": "Lastname is required.",
+          "minlength": "Lastname is required to be at least 2 characters.",
+          "maxlength": "Lastname cannot be longer than 30 characters."
+        },
+        "firstname": {
+          "required": "Firstname is required.",
+          "minlength": "Firstname is required to be at least 2 characters.",
+          "maxlength": "Firstname cannot be longer than 30 characters."
+        },
+        "password": {
+          "required": "Password is required.",
+          "minlength": "Password is required to be at least 4 characters.",
+          "maxlength": "Password cannot be longer than 50 characters.",
+          "strength": "Password strength:"
+        },
         "newpassword": {
-          "required": "Your password is required.",
-          "minlength": "Your password is required to be at least 4 characters.",
-          "maxlength": "Your password cannot be longer than 50 characters.",
+          "required": "Password is required.",
+          "minlength": "Password is required to be at least 4 characters.",
+          "maxlength": "Password cannot be longer than 50 characters.",
           "strength": "Password strength:"
         },
         "confirmpassword": {
-          "required": "Your confirmation password is required.",
-          "minlength": "Your confirmation password is required to be at least 4 characters.",
-          "maxlength": "Your confirmation password cannot be longer than 50 characters."
+          "required": "Password confirmation is required.",
+          "minlength": "Password confirmation is required to be at least 4 characters.",
+          "maxlength": "Password confirmation cannot be longer than 50 characters."
         },
         "email": {
-          "required": "Your email is required.",
-          "invalid": "Your email is invalid.",
-          "minlength": "Your email is required to be at least 5 characters.",
-          "maxlength": "Your email cannot be longer than 50 characters."
+          "required": "Email is required.",
+          "invalid": "Email is invalid.",
+          "minlength": "Email is required to be at least 5 characters.",
+          "maxlength": "Email cannot be longer than 50 characters."
+        },
+        "confirmEmail": {
+          "required": "Email confirmation is required.",
+          "invalid": "The two email address do not match.",
+          "minlength": "Email is required to be at least 5 characters.",
+          "maxlength": "Email cannot be longer than 50 characters."
+        },
+        "studentStatus": {
+          "required": "Student status is required."
+        },
+        "institution": {
+          "required": "Institution is required.",
+          "maxlength": "Institution cannot be longer than 4 characters."
+        },
+        "faculty": {
+          "required": "Faculty is required.",
+          "maxlength": "Institution cannot be longer than 4 characters."
+        },
+        "isCollegian": {
+          "required": "College status is required."
+        },
+        "room": {
+          "required": "Room number is required."
         }
       }
     },

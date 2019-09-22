@@ -45,6 +45,7 @@ public class CacheConfiguration {
             createCache(cm, hu.martos.gym.domain.Authority.class.getName());
             createCache(cm, hu.martos.gym.domain.User.class.getName() + ".authorities");
             createCache(cm, hu.martos.gym.domain.Tool.class.getName());
+            createCache(cm, hu.martos.gym.domain.Article.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

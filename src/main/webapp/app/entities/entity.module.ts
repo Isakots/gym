@@ -1,5 +1,5 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
-import {RouterModule} from '@angular/router';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -7,6 +7,10 @@ import {RouterModule} from '@angular/router';
       {
         path: 'tool',
         loadChildren: () => import('./tool/tool.module').then(m => m.GymToolModule)
+      },
+      {
+        path: 'article',
+        loadChildren: () => import('./article/article.module').then(m => m.GymArticleModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
