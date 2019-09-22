@@ -3,10 +3,12 @@ package hu.martos.gym.service.mapper;
 import hu.martos.gym.domain.Authority;
 import hu.martos.gym.domain.User;
 import hu.martos.gym.service.dto.UserDTO;
-
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -42,7 +44,6 @@ public class UserMapper {
         } else {
             User user = new User();
             user.setId(userDTO.getId());
-            user.setLogin(userDTO.getLogin());
             user.setFirstName(userDTO.getFirstName());
             user.setLastName(userDTO.getLastName());
             user.setEmail(userDTO.getEmail());
