@@ -69,12 +69,6 @@ spring:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
     cache: false
-  data:
-    mongodb:
-      host: # hostname
-      port: # port
-      uri: #uri
-      database: #db
 
 server:
   port: 8080

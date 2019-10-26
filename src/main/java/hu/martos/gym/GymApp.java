@@ -2,16 +2,17 @@ package hu.martos.gym;
 
 import hu.martos.gym.config.ApplicationProperties;
 import hu.martos.gym.config.DefaultProfileUtil;
-
 import io.github.jhipster.config.JHipsterConstants;
-
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
+import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
 
@@ -20,7 +21,11 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Collection;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {
+    MongoAutoConfiguration.class,
+    MongoDataAutoConfiguration.class,
+    EmbeddedMongoAutoConfiguration.class
+})
 @EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
 public class GymApp implements InitializingBean {
 

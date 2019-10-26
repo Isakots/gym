@@ -197,8 +197,11 @@
                 <div class="form-group">
                     <label class="form-control-label" for="studentStatus"
                            jhiTranslate="global.form.studentStatus.label">Student Status</label>
-                    <input type="checkbox" class="form-control" id="studentStatus" name="studentStatus"
-                           formControlName="studentStatus">
+                    <select class="form-control" id="studentStatus" name="studentStatus">
+                        <option value="" disabled selected jhiTranslate="global.form.studentStatus.choose">Kérjük válasszon!</option>
+                        <option value="YES" jhiTranslate="global.form.studentStatus.yes">Van</option>
+                        <option value="NO" jhiTranslate="global.form.studentStatus.no">Nincs</option>
+                    </select>
                     <div
                         *ngIf="registerForm.get('studentStatus').invalid && (registerForm.get('studentStatus').dirty || registerForm.get('studentStatus').touched)">
                         <small class="form-text text-danger" *ngIf="registerForm.get('studentStatus').errors.required"
@@ -257,9 +260,11 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="form-control-label" for="isCollegian" jhiTranslate="global.form.isCollegian.label">Kollégista?</label>
-                    <input type="checkbox" class="form-control" id="isCollegian" name="isCollegian"
-                           placeholder="{{'global.form.isCollegian.placeholder' | translate}}"
-                           formControlName="isCollegian">
+                    <select class="form-control" id="isCollegian" name="isCollegian">
+                        <option value="" disabled selected jhiTranslate="global.form.isCollegian.choose">Kérjük válasszon!</option>
+                        <option value="COLLEGIAN" jhiTranslate="global.form.isCollegian.college">Kollégista</option>
+                        <option value="EXTRERNAL" jhiTranslate="global.form.isCollegian.external">Külsős</option>
+                    </select>
                     <div
                         *ngIf="registerForm.get('isCollegian').invalid && (registerForm.get('isCollegian').dirty || registerForm.get('isCollegian').touched)">
                         <small class="form-text text-danger" *ngIf="registerForm.get('isCollegian').errors.required"
@@ -287,9 +292,33 @@
                 </div>
             </div>
         </div>
-
+        <div class="row justify-content-md-center">
+            <div class="col-md-8 extra-margin-top">
+                <label class="container">Értesítő e-mail küldése edzésekről, melyekre feliratkoztam
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
         <div class="row justify-content-md-center">
             <div class="col-md-8">
+                <label class="container">Értesítő e-mail küldése frissen kiírt edzésekről
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-8">
+                <label class="container">Értesítő e-mail küldése új hírfolyam cikkről
+                    <input type="checkbox" checked="checked">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-8 extra-margin-top">
                 <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary" (click)="register()"
                         jhiTranslate="register.form.button">Register
                 </button>

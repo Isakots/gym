@@ -1,18 +1,18 @@
 package hu.martos.gym.domain;
 
-import javax.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
  * A Article.
  */
-@Entity
-@Table(name = "article")
-//@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Document(collection = "article")
 public class Article implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     @Column(name = "title")

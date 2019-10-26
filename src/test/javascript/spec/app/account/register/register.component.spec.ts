@@ -1,12 +1,12 @@
-import { ComponentFixture, TestBed, async, inject, tick, fakeAsync } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { Observable, of, throwError } from 'rxjs';
+import { of, throwError } from 'rxjs';
 
 import { JhiLanguageService } from 'ng-jhipster';
 import { MockLanguageService } from '../../../helpers/mock-language.service';
 import { GymTestModule } from '../../../test.module';
 import { EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from 'app/shared';
-import { Register } from 'app/account/register/register.service';
+import { RegisterService } from 'app/account/register/register.service';
 import { RegisterComponent } from 'app/account/register/register.component';
 
 describe('Component Tests', () => {
@@ -42,8 +42,8 @@ describe('Component Tests', () => {
     });
 
     it('should update success to OK after creating an account', inject(
-      [Register, JhiLanguageService],
-      fakeAsync((service: Register, mockTranslate: MockLanguageService) => {
+      [RegisterService, JhiLanguageService],
+      fakeAsync((service: RegisterService, mockTranslate: MockLanguageService) => {
         spyOn(service, 'save').and.returnValue(of({}));
         comp.registerForm.patchValue({
           password: 'password',
@@ -68,8 +68,8 @@ describe('Component Tests', () => {
     ));
 
     it('should notify of user existence upon 400/login already in use', inject(
-      [Register],
-      fakeAsync((service: Register) => {
+      [RegisterService],
+      fakeAsync((service: RegisterService) => {
         spyOn(service, 'save').and.returnValue(
           throwError({
             status: 400,
@@ -91,8 +91,8 @@ describe('Component Tests', () => {
     ));
 
     it('should notify of email existence upon 400/email address already in use', inject(
-      [Register],
-      fakeAsync((service: Register) => {
+      [RegisterService],
+      fakeAsync((service: RegisterService) => {
         spyOn(service, 'save').and.returnValue(
           throwError({
             status: 400,
@@ -114,8 +114,8 @@ describe('Component Tests', () => {
     ));
 
     it('should notify of generic error', inject(
-      [Register],
-      fakeAsync((service: Register) => {
+      [RegisterService],
+      fakeAsync((service: RegisterService) => {
         spyOn(service, 'save').and.returnValue(
           throwError({
             status: 503

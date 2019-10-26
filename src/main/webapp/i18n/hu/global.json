@@ -37,6 +37,8 @@
       "language": "Nyelv"
     },
     "form": {
+      "username.label": "E-mail cím",
+      "username.placeholder": "",
       "lastname.label": "Vezetéknév",
       "lastname.placeholder": "Vezetéknév",
       "firstname.label": "Keresztnév",
@@ -54,11 +56,17 @@
       "confirmEmail.label": "E-mail cím megerősítése",
       "confirmEmail.placeholder": "E-mail cím",
       "studentStatus.label": "Hallgatói jogviszony",
-      "institution.label": "Oktatási intzémény",
+      "studentStatus.choose": "Kérjük válasszon..",
+      "studentStatus.yes": "Van",
+      "studentStatus.no": "Nincs",
+      "institution.label": "Oktatási intézmény",
       "institution.placeholder": "pl. BME",
       "faculty.label": "Kar",
       "faculty.placeholder": "pl. VBK",
       "isCollegian.label": "Lakhatás",
+      "isCollegian.choose": "Kérjük válasszon..",
+      "isCollegian.college": "Kollégista",
+      "isCollegian.external": "Külsős",
       "room.label": "Szobaszám",
       "room.placeholder": "000"
     },
