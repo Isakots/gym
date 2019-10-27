@@ -4,12 +4,11 @@
             <h2>{{article.title}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
-            <quill-view [content]="article.mainText" format="text" theme="snow"></quill-view>
-            <dl class="row-md jh-entity-details">
-                <dd>
-                    <span [innerHTML]="article.mainText"></span>
-                </dd>
-            </dl>
+
+            <div class="ql-container ql-snow" style="border-width: 0;">
+                <div class="ql-editor" [innerHTML]="article.mainText">
+                </div>
+            </div>
 
             <button type="submit"
                     [routerLink]="['/']"
