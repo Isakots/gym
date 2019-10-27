@@ -13,11 +13,12 @@ import {
   articleRoute,
   ArticleUpdateComponent
 } from './';
+import { QuillModule } from 'ngx-quill';
 
 const ENTITY_STATES = [...articleRoute, ...articlePopupRoute];
 
 @NgModule({
-  imports: [GymSharedModule, RouterModule.forChild(ENTITY_STATES)],
+  imports: [GymSharedModule, RouterModule.forChild(ENTITY_STATES), QuillModule],
   declarations: [
     ArticleComponent,
     ArticleDetailComponent,
@@ -27,6 +28,7 @@ const ENTITY_STATES = [...articleRoute, ...articlePopupRoute];
   ],
   entryComponents: [ArticleComponent, ArticleUpdateComponent, ArticleDeleteDialogComponent, ArticleDeletePopupComponent],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
+  exports: [ArticleComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class GymArticleModule {

@@ -1,22 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Lato);
-
-.home {
-  padding-top: 20px;
-  padding-left: 25px;
-}
-
-.set-width {
-  width: 100%;
-  margin: auto;
-  align-content: center;
-}
-
-$title-background: #ff4500;
+$title-background: #000;
 $background-color: #faf8eb;
-$content-background-color: #ff6500;
-$content-background-gradient: #ff9500;
+$content-background-color: #000;
+$content-background-gradient: #000;
 $time-color: #fff;
-$text-color: #fff;
+$text-color: #ff8500;
 $content-width: 450px;
 
 *,
@@ -32,6 +19,14 @@ $content-width: 450px;
 body {
   font-size: 16px;
   font-family: 'Lato', sans-serif;
+}
+
+p {
+  color: $text-color;
+}
+
+a {
+  text-decoration: none;
 }
 
 .timeline {
@@ -54,7 +49,7 @@ body {
     padding: 50px 0;
 
     li {
-      background: $content-background-color;
+      background: $text-color;
       position: relative;
       margin: 0 auto;
       width: 5px;
@@ -75,7 +70,7 @@ body {
         -webkit-transform: translateX(-50%);
         width: 20px;
         height: 20px;
-        border: 3px solid $content-background-color;
+        border: 3px solid $text-color;
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
         border-radius: 50%;
@@ -104,7 +99,7 @@ body {
 
         &:before {
           content: '';
-          background: $content-background-color;
+          background: $text-color;
           position: absolute;
           top: 0px;
           width: 38px;
@@ -115,8 +110,6 @@ body {
       &:nth-child(odd) .content {
         left: 50px;
         background: $content-background-color;
-        background: -webkit-linear-gradient(-45deg, $content-background-gradient, $content-background-color);
-        background: linear-gradient(-45deg, $content-background-gradient, $content-background-color);
       }
 
       &:nth-child(odd) .content:before {
@@ -126,8 +119,6 @@ body {
       &:nth-child(even) .content {
         left: calc(-#{$content-width} - 45px);
         background: $content-background-color;
-        background: -webkit-linear-gradient(45deg, $content-background-gradient, $content-background-color);
-        background: linear-gradient(45deg, $content-background-gradient, $content-background-color);
       }
 
       &:nth-child(even) .content:before {

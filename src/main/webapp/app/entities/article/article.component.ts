@@ -10,12 +10,14 @@ import { ArticleService } from './article.service';
 
 @Component({
   selector: 'jhi-article',
-  templateUrl: './article.component.html'
+  templateUrl: './article.component.html',
+  styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit, OnDestroy {
   articles: IArticle[];
   currentAccount: any;
   eventSubscriber: Subscription;
+  content: string;
 
   constructor(
     protected articleService: ArticleService,

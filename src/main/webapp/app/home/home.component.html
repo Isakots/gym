@@ -1,26 +1,35 @@
+
 <div class="row">
-    <div class="col-md-8">
-        <h1 class="display-4" jhiTranslate="home.title">Welcome, Java Hipster!</h1>
-
-        <div [ngSwitch]="isAuthenticated()">
-            <div class="alert alert-success" *ngSwitchCase="true">
-                <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
-                      [translateValues]="{username: account.login}"> You are logged in as user "{{account.login}}
-                    ". </span>
+    <ngb-carousel *ngIf="images">
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[0]" class="img-fluid" alt="First slide">
             </div>
-        </div>
-    </div>
-
-    <div class="col-md-3">
-        <h1 class="display-4" >Sidebar</h1>
-        <div [ngSwitch]="isAuthenticated()">
-            <div class="alert alert-success" *ngSwitchCase="true">
-                <span id="home-logged-message2" *ngIf="account" jhiTranslate="home.logged.message"
-                      [translateValues]="{username: account.login}"> You are logged in as user "{{account.login}}
-                    ". </span>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[1]" class="img-fluid" alt="Second slide">
             </div>
+        </ng-template>
+        <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+                <img [src]="images[2]" class="img-fluid" alt="Third slide">
+            </div>
+        </ng-template>
+    </ngb-carousel>
+</div>
+<div class="home">
+    <div class="row">
+        <div class="col-lg-9">
+            <router-outlet name="articles"></router-outlet>
+            <jhi-article></jhi-article>
         </div>
 
-
+        <div class="col-lg-3">
+            <iframe
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmartoskondi%2F&tabs=timeline%2Cmessages&width=340&height=1000&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                width="350" height="700" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                allowTransparency="true" allow="encrypted-media"></iframe>
+        </div>
     </div>
 </div>

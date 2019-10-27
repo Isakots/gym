@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { LoginModalService, AccountService, Account } from 'app/core';
+import { Account, AccountService, LoginModalService } from 'app/core';
 
 @Component({
   selector: 'jhi-home',
@@ -12,6 +12,7 @@ import { LoginModalService, AccountService, Account } from 'app/core';
 export class HomeComponent implements OnInit {
   account: Account;
   modalRef: NgbModalRef;
+  images = [];
 
   constructor(
     private accountService: AccountService,
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
       this.account = account;
     });
     this.registerAuthenticationSuccess();
+    this.images = [1, 2, 3].map(() => `https://picsum.photos/1780/350?random&t=${Math.random()}`);
   }
 
   registerAuthenticationSuccess() {

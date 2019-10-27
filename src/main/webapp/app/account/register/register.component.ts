@@ -31,24 +31,9 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     private _formBuilder: FormBuilder
   ) {}
 
-  onChanges() {
-    this.registerForm.controls.studentStatus.valueChanges.subscribe(selected => {
-      if (selected !== 'YES') {
-        this.registerForm.get('institution').reset();
-        this.registerForm.get('institution').disable();
-        this.registerForm.get('faculty').reset();
-        this.registerForm.get('faculty').disable();
-      } else {
-        this.registerForm.get('institution').enable();
-        this.registerForm.get('faculty').enable();
-      }
-    });
-  }
-
   ngOnInit() {
     this.success = false;
     this._initFormGroup();
-    this.onChanges();
   }
 
   ngAfterViewInit() {

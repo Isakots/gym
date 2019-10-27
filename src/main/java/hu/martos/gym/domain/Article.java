@@ -6,9 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import java.io.Serializable;
 
-/**
- * A Article.
- */
 @Document(collection = "article")
 public class Article implements Serializable {
 
@@ -21,10 +18,12 @@ public class Article implements Serializable {
     @Column(name = "type")
     private String type;
 
-    @Column(name = "text")
-    private String text;
+    @Column(name = "introduction")
+    private String introduction;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    @Column(name = "main_text")
+    private String mainText;
+
     public String getId() {
         return id;
     }
@@ -37,11 +36,6 @@ public class Article implements Serializable {
         return title;
     }
 
-    public Article title(String title) {
-        this.title = title;
-        return this;
-    }
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -50,28 +44,25 @@ public class Article implements Serializable {
         return type;
     }
 
-    public Article type(String type) {
-        this.type = type;
-        return this;
-    }
-
     public void setType(String type) {
         this.type = type;
     }
 
-    public String getText() {
-        return text;
+    public String getIntroduction() {
+        return introduction;
     }
 
-    public Article text(String text) {
-        this.text = text;
-        return this;
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public String getMainText() {
+        return mainText;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+
+    public void setMainText(String mainText) {
+        this.mainText = mainText;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -92,10 +83,11 @@ public class Article implements Serializable {
     @Override
     public String toString() {
         return "Article{" +
-            "id=" + getId() +
-            ", title='" + getTitle() + "'" +
-            ", type='" + getType() + "'" +
-            ", text='" + getText() + "'" +
-            "}";
+            "id='" + id + '\'' +
+            ", title='" + title + '\'' +
+            ", type='" + type + '\'' +
+            ", introduction='" + introduction + '\'' +
+            ", text='" + mainText + '\'' +
+            '}';
     }
 }
