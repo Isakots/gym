@@ -51,7 +51,7 @@ public class ArticleResource {
         }
         Article result = articleRepository.save(article);
         return ResponseEntity.created(new URI("/api/articles/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId()))
             .body(result);
     }
 
@@ -65,14 +65,14 @@ public class ArticleResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/articles")
-    public ResponseEntity<Article> updateArticle(@RequestBody Article article) throws URISyntaxException {
+    public ResponseEntity<Article> updateArticle(@RequestBody Article article) {
         log.debug("REST request to update Article : {}", article);
         if (article.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
         Article result = articleRepository.save(article);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, article.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, article.getId()))
             .body(result);
     }
 
@@ -95,7 +95,7 @@ public class ArticleResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the article, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/articles/{id}")
-    public ResponseEntity<Article> getArticle(@PathVariable Long id) {
+    public ResponseEntity<Article> getArticle(@PathVariable String id) {
         log.debug("REST request to get Article : {}", id);
         Optional<Article> article = articleRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(article);
@@ -108,9 +108,9 @@ public class ArticleResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/articles/{id}")
-    public ResponseEntity<Void> deleteArticle(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteArticle(@PathVariable String id) {
         log.debug("REST request to delete Article : {}", id);
         articleRepository.deleteById(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id)).build();
     }
 }

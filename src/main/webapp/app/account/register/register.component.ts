@@ -1,16 +1,17 @@
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiLanguageService } from 'ng-jhipster';
 
 import { EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from 'app/shared';
 import { LoginModalService } from 'app/core';
-import { Register } from './register.service';
+import { RegisterService } from './register.service';
 
 @Component({
   selector: 'jhi-register',
-  templateUrl: './register.component.html'
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit, AfterViewInit {
   doNotMatch: string;
@@ -19,36 +20,42 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   errorUserExists: string;
   success: boolean;
   modalRef: NgbModalRef;
-
-  registerForm = this.fb.group({
-    firstname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
-    lastname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
-    email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
-    confirmEmail: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-    confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
-    studentStatus: ['', [Validators.required]],
-    institution: ['', [Validators.required, Validators.maxLength(4)]],
-    faculty: ['', [Validators.required, Validators.maxLength(4)]],
-    isCollegian: ['', [Validators.required]],
-    room: ['', [Validators.required]]
-  });
+  registerForm: FormGroup;
 
   constructor(
     private languageService: JhiLanguageService,
     private loginModalService: LoginModalService,
-    private registerService: Register,
+    private registerService: RegisterService,
     private elementRef: ElementRef,
     private renderer: Renderer,
-    private fb: FormBuilder
+    private _formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
     this.success = false;
+    this._initFormGroup();
   }
 
   ngAfterViewInit() {
     this.renderer.invokeElementMethod(this.elementRef.nativeElement.querySelector('#lastname'), 'focus', []);
+  }
+
+  private _initFormGroup() {
+    const formGroupControlsConfig = {
+      firstname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+      lastname: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+      email: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
+      confirmEmail: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(254), Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]],
+      studentStatus: ['', [Validators.required]],
+      institution: ['', [Validators.required, Validators.maxLength(4)]],
+      faculty: ['', [Validators.required, Validators.maxLength(4)]],
+      isCollegian: ['', [Validators.required]],
+      room: ['', [Validators.required]]
+    };
+
+    this.registerForm = this._formBuilder.group(formGroupControlsConfig);
   }
 
   register() {

@@ -35,7 +35,8 @@ export const articleRoute: Routes = [
       authorities: ['ROLE_USER'],
       pageTitle: 'gymApp.article.home.title'
     },
-    canActivate: [UserRouteAccessService]
+    canActivate: [UserRouteAccessService],
+    outlet: 'articles'
   },
   {
     path: ':id/view',

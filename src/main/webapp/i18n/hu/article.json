@@ -2,23 +2,24 @@
   "gymApp": {
     "article": {
       "home": {
-        "title": "Articles",
-        "createLabel": "Egy új Article létrehozása",
-        "createOrEditLabel": "Hozzon létre, vagy módosítson Articlet",
-        "notFound": "No Articles found"
+        "title": "Cikkek",
+        "createLabel": "Új cikk létrehozása",
+        "createOrEditLabel": "Cikk létrehozása vagy módosítása",
+        "notFound": "Nem található egy cikk sem."
       },
-      "created": "Egy új Article lett létrehozva {{ param }} azonosítóval",
-      "updated": "A Article módosítva lett {{ param }} azonosítóval",
-      "deleted": "A Article törölve lett {{ param }} azonosítóval",
+      "created": "A cikk létrehozva.",
+      "updated": "A cikk módosítva lett.",
+      "deleted": "A cikk törlésre került.",
       "delete": {
-        "question": "Biztos benne, hogy törölni szeretné az Articlet {{ id }} azonosítóval?"
+        "question": "Biztos benne, hogy törölni szeretné a cikket?"
       },
       "detail": {
         "title": "Article"
       },
-      "title": "Title",
-      "type": "Type",
-      "text": "Text"
+      "title": "Cím",
+      "type": "Cikk típusa",
+      "introduction": "Bevezető",
+      "text": "Fő szöveg"
     }
   }
 }

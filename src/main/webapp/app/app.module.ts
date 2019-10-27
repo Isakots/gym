@@ -19,7 +19,9 @@ import { GymAccountModule } from './account/account.module';
 import { GymEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { ActiveMenuDirective, ErrorComponent, FooterComponent, JhiMainComponent, NavbarComponent, PageRibbonComponent } from './layouts';
+import { QuillModule } from 'ngx-quill';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -38,7 +40,9 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     GymAccountModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     GymEntityModule,
-    GymAppRoutingModule
+    GymAppRoutingModule,
+    ReactiveFormsModule,
+    QuillModule.forRoot()
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   providers: [

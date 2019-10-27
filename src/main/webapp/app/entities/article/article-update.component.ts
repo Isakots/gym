@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Article, IArticle } from 'app/shared/model/article.model';
@@ -11,30 +11,35 @@ import { ArticleService } from './article.service';
   templateUrl: './article-update.component.html'
 })
 export class ArticleUpdateComponent implements OnInit {
+  quillContent: string;
+
   isSaving: boolean;
 
-  editForm = this.fb.group({
-    id: [],
-    title: [],
-    type: [],
-    text: []
-  });
+  editorForm: FormGroup;
 
   constructor(protected articleService: ArticleService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
 
   ngOnInit() {
+    this.editorForm = new FormGroup({
+      id: new FormControl(''),
+      title: new FormControl(''),
+      type: new FormControl(''),
+      introduction: new FormControl(''),
+      editor: new FormControl('')
+    });
     this.isSaving = false;
     this.activatedRoute.data.subscribe(({ article }) => {
+      this.quillContent = article.mainText;
       this.updateForm(article);
     });
   }
 
   updateForm(article: IArticle) {
-    this.editForm.patchValue({
+    this.editorForm.patchValue({
       id: article.id,
       title: article.title,
       type: article.type,
-      text: article.text
+      introduction: article.introduction
     });
   }
 
@@ -55,10 +60,11 @@ export class ArticleUpdateComponent implements OnInit {
   private createFromForm(): IArticle {
     return {
       ...new Article(),
-      id: this.editForm.get(['id']).value,
-      title: this.editForm.get(['title']).value,
-      type: this.editForm.get(['type']).value,
-      text: this.editForm.get(['text']).value
+      id: this.editorForm.get(['id']).value,
+      title: this.editorForm.get(['title']).value,
+      type: this.editorForm.get(['type']).value,
+      introduction: this.editorForm.get(['introduction']).value,
+      mainText: this.editorForm.get(['editor']).value
     };
   }
 
@@ -74,4 +80,6 @@ export class ArticleUpdateComponent implements OnInit {
   protected onSaveError() {
     this.isSaving = false;
   }
+
+  onSubmit() {}
 }

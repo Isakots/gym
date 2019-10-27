@@ -37,6 +37,8 @@
       "language": "Language"
     },
     "form": {
+      "username.label": "E-mail address",
+      "username.placeholder": "",
       "lastname.label": "Lastname",
       "lastname.placeholder": "Lastname",
       "firstname.label": "Firstname",
@@ -54,11 +56,17 @@
       "confirmEmail.label": "E-mail confirmation",
       "confirmEmail.placeholder": "E-mail address",
       "studentStatus.label": "Student status",
+      "studentStatus.choose": "Please choose..",
+      "studentStatus.yes": "Yes",
+      "studentStatus.no": "No",
       "institution.label": "Institutiton",
       "institution.placeholder": "eg. BME",
       "faculty.label": "Faculty",
       "faculty.placeholder": "eg. VBK",
       "isCollegian.label": "Is Collegian?",
+      "isCollegian.choose": "Please choose..",
+      "isCollegian.college": "Collegian",
+      "isCollegian.external": "External",
       "room.label": "Room number",
       "room.placeholder": "000"
     },

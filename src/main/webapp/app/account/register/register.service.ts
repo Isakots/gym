@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 
 @Injectable({ providedIn: 'root' })
-export class Register {
+export class RegisterService {
   constructor(private http: HttpClient) {}
 
   save(account: any): Observable<any> {
