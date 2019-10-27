@@ -32,10 +32,8 @@ export const articleRoute: Routes = [
     path: '',
     component: ArticleComponent,
     data: {
-      authorities: ['ROLE_USER'],
       pageTitle: 'gymApp.article.home.title'
     },
-    canActivate: [UserRouteAccessService],
     outlet: 'articles'
   },
   {
@@ -45,7 +43,6 @@ export const articleRoute: Routes = [
       article: ArticleResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
       pageTitle: 'gymApp.article.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -57,7 +54,7 @@ export const articleRoute: Routes = [
       article: ArticleResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_MEMBER'],
       pageTitle: 'gymApp.article.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -69,7 +66,7 @@ export const articleRoute: Routes = [
       article: ArticleResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_MEMBER'],
       pageTitle: 'gymApp.article.home.title'
     },
     canActivate: [UserRouteAccessService]
@@ -84,7 +81,7 @@ export const articlePopupRoute: Routes = [
       article: ArticleResolve
     },
     data: {
-      authorities: ['ROLE_USER'],
+      authorities: ['ROLE_MEMBER'],
       pageTitle: 'gymApp.article.home.title'
     },
     canActivate: [UserRouteAccessService],

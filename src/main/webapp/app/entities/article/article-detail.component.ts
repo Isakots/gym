@@ -5,7 +5,8 @@ import { IArticle } from 'app/shared/model/article.model';
 
 @Component({
   selector: 'jhi-article-detail',
-  templateUrl: './article-detail.component.html'
+  templateUrl: './article-detail.component.html',
+  styleUrls: ['./article-detail.component.scss']
 })
 export class ArticleDetailComponent implements OnInit {
   article: IArticle;
