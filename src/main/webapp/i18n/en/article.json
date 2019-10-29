@@ -3,8 +3,9 @@
     "article": {
       "home": {
         "title": "Articles",
-        "createLabel": "Create a new article",
+        "createLabel": "Create",
         "createOrEditLabel": "Create or edit article",
+        "deleteLabel": "Delete",
         "notFound": "No Articles found"
       },
       "created": "Article is created.",

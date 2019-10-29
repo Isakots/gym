@@ -1,8 +1,5 @@
 package hu.martos.gym.domain;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -13,7 +10,6 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "tool")
-@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Tool implements Serializable {
 
     private static final long serialVersionUID = 1L;

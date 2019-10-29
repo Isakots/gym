@@ -34,6 +34,7 @@ export const articleRoute: Routes = [
     data: {
       pageTitle: 'gymApp.article.home.title'
     },
+    canActivate: [UserRouteAccessService],
     outlet: 'articles'
   },
   {

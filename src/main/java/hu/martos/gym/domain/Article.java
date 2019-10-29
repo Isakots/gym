@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Document(collection = "article")
-public class Article implements Serializable {
+public class Article extends AbstractAuditingEntity implements Serializable {
 
     @Id
     private String id;

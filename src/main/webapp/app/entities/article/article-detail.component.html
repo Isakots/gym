@@ -9,9 +9,18 @@
                             [routerLink]="['/article/new']"
                             *jhiHasAnyAuthority="'ROLE_MEMBER'">
                         <fa-icon [icon]="'plus'"></fa-icon>
-                        <span jhiTranslate="gymApp.article.home.createLabel">
-            Create a new Tool
-            </span>
+                        <span
+                            jhiTranslate="gymApp.article.home.createLabel">Create Article
+                        </span>
+                    </button>
+                    <button id="jh-delete-entity"
+                            class="btn btn-primary float-right jh-delete-entity create-tool"
+                            [routerLink]="['/article', article.id, 'delete']"
+                            *jhiHasAnyAuthority="'ROLE_MEMBER'">
+                        <fa-icon [icon]="'plus'"></fa-icon>
+                        <span
+                            jhiTranslate="gymApp.article.home.deleteLabel">Delete article
+                        </span>
                     </button>
                 </h2>
                 <hr>
