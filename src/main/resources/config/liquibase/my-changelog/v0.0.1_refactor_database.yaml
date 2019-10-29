@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: MY-CONFIG-2
+      author: csokasi.marcell
+      changes:
+        - sqlFile:
+            encoding: utf8
+            path: config/liquibase/my-changelog/v0.0.1_refactor_database.sql

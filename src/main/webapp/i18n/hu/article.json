@@ -3,8 +3,9 @@
     "article": {
       "home": {
         "title": "Cikkek",
-        "createLabel": "Új cikk létrehozása",
+        "createLabel": "Létrehozás",
         "createOrEditLabel": "Cikk létrehozása vagy módosítása",
+        "deleteLabel": "Törlés",
         "notFound": "Nem található egy cikk sem."
       },
       "created": "A cikk létrehozva.",
@@ -19,7 +20,7 @@
       "title": "Cím",
       "type": "Cikk típusa",
       "introduction": "Bevezető",
-      "text": "Fő szöveg"
+      "text": "Tartalom"
     }
   }
 }

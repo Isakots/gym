@@ -16,9 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Authenticate a user from the database.
- */
 @Component("userDetailsService")
 public class DomainUserDetailsService implements UserDetailsService {
 
@@ -42,8 +39,6 @@ public class DomainUserDetailsService implements UserDetailsService {
         } else {
             throw new UsernameNotFoundException("User with email " + login + " is not valid");
         }
-
-
     }
 
     private org.springframework.security.core.userdetails.User createSpringSecurityUser(String lowercaseLogin, User user) {

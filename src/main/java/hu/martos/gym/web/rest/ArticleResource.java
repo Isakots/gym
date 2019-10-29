@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -44,6 +45,7 @@ public class ArticleResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/articles")
+    @PreAuthorize("hasAuthority('ROLE_MEMBER')")
     public ResponseEntity<Article> createArticle(@RequestBody Article article) throws URISyntaxException {
         log.debug("REST request to save Article : {}", article);
         if (article.getId() != null) {
@@ -65,6 +67,7 @@ public class ArticleResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/articles")
+    @PreAuthorize("hasAuthority('ROLE_MEMBER')")
     public ResponseEntity<Article> updateArticle(@RequestBody Article article) {
         log.debug("REST request to update Article : {}", article);
         if (article.getId() == null) {
@@ -108,6 +111,7 @@ public class ArticleResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/articles/{id}")
+    @PreAuthorize("hasAuthority('ROLE_MEMBER')")
     public ResponseEntity<Void> deleteArticle(@PathVariable String id) {
         log.debug("REST request to delete Article : {}", id);
         articleRepository.deleteById(id);
