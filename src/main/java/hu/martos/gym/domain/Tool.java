@@ -10,7 +10,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "tool")
-public class Tool implements Serializable {
+public class Tool extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

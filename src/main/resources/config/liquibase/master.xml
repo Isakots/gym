@@ -17,6 +17,7 @@
     <include file="config/liquibase/changelog/20190808212255_added_entity_Tool.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/add_member_authority.yaml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190922124356_added_entity_Article.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/my-changelog/v0.0.1_refactor_database.yaml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
