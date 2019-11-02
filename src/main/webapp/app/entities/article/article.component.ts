@@ -36,6 +36,12 @@ export class ArticleComponent implements OnInit, OnDestroy {
       .subscribe(
         (res: IArticle[]) => {
           this.articles = res;
+          this.articles.sort((a, b) => {
+            if (a.createdDate === b.createdDate) {
+              return 0;
+            }
+            return a.createdDate > b.createdDate ? -1 : 1;
+          });
         },
         (res: HttpErrorResponse) => this.onError(res.message)
       );
