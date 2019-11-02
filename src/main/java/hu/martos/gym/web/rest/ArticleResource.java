@@ -2,9 +2,11 @@ package hu.martos.gym.web.rest;
 
 import hu.martos.gym.domain.Article;
 import hu.martos.gym.repository.ArticleRepository;
+import hu.martos.gym.service.dto.ArticleDTO;
 import hu.martos.gym.web.rest.errors.BadRequestAlertException;
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,6 +18,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing {@link hu.martos.gym.domain.Article}.
@@ -32,9 +35,11 @@ public class ArticleResource {
     private String applicationName;
 
     private final ArticleRepository articleRepository;
+    private final ModelMapper modelMapper;
 
-    public ArticleResource(ArticleRepository articleRepository) {
+    public ArticleResource(ArticleRepository articleRepository, ModelMapper modelMapper) {
         this.articleRepository = articleRepository;
+        this.modelMapper = modelMapper;
     }
 
     /**
@@ -86,9 +91,12 @@ public class ArticleResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of articles in body.
      */
     @GetMapping("/articles")
-    public List<Article> getAllArticles() {
+    public List<ArticleDTO> getAllArticles() {
         log.debug("REST request to get all Articles");
-        return articleRepository.findAll();
+        return articleRepository.findAll()
+            .stream()
+            .map(article -> modelMapper.map(article, ArticleDTO.class))
+            .collect(Collectors.toList());
     }
 
     /**

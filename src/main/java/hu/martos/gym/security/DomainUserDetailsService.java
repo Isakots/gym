@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Component("userDetailsService")
 public class DomainUserDetailsService implements UserDetailsService {
 
-    private final Logger log = LoggerFactory.getLogger(DomainUserDetailsService.class);
+    private final Logger LOGGER = LoggerFactory.getLogger(DomainUserDetailsService.class);
 
     private final UserRepository userRepository;
 
@@ -30,7 +30,7 @@ public class DomainUserDetailsService implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(final String login) {
-        log.debug("Authenticating {}", login);
+        LOGGER.debug("Authenticating {}", login);
 
         if (new EmailValidator().isValid(login, null)) {
             return userRepository.findOneWithAuthoritiesByEmailIgnoreCase(login)

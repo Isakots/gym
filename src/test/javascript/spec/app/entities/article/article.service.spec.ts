@@ -21,7 +21,7 @@ describe('Service Tests', () => {
       service = injector.get(ArticleService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Article(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new Article('0', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {

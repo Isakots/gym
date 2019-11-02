@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Article, IArticle } from 'app/shared/model/article.model';
 import { ArticleService } from './article.service';
@@ -17,7 +17,7 @@ export class ArticleUpdateComponent implements OnInit {
 
   editorForm: FormGroup;
 
-  constructor(protected articleService: ArticleService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(protected articleService: ArticleService, protected activatedRoute: ActivatedRoute, private _router: Router) {}
 
   ngOnInit() {
     this.editorForm = new FormGroup({
@@ -69,12 +69,12 @@ export class ArticleUpdateComponent implements OnInit {
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IArticle>>) {
-    result.subscribe(() => this.onSaveSuccess(), () => this.onSaveError());
+    result.subscribe(answer => this.onSaveSuccess(answer.body.id), () => this.onSaveError());
   }
 
-  protected onSaveSuccess() {
+  protected onSaveSuccess(id: string) {
     this.isSaving = false;
-    this.previousState();
+    this._router.navigate(['/article', id, 'view']);
   }
 
   protected onSaveError() {
