@@ -3,9 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiLanguageService } from 'ng-jhipster';
 import { SessionStorageService } from 'ngx-webstorage';
-
-import { VERSION } from 'app/app.constants';
-import { JhiLanguageHelper, AccountService, LoginModalService, LoginService } from 'app/core';
+import { AccountService, JhiLanguageHelper, LoginModalService, LoginService } from 'app/core';
 import { ProfileService } from 'app/layouts/profiles/profile.service';
 
 @Component({
@@ -17,9 +15,7 @@ export class NavbarComponent implements OnInit {
   inProduction: boolean;
   isNavbarCollapsed: boolean;
   languages: any[];
-  swaggerEnabled: boolean;
   modalRef: NgbModalRef;
-  version: string;
 
   constructor(
     private loginService: LoginService,
@@ -31,7 +27,6 @@ export class NavbarComponent implements OnInit {
     private profileService: ProfileService,
     private router: Router
   ) {
-    this.version = VERSION ? 'v' + VERSION : '';
     this.isNavbarCollapsed = true;
   }
 
@@ -42,7 +37,6 @@ export class NavbarComponent implements OnInit {
 
     this.profileService.getProfileInfo().then(profileInfo => {
       this.inProduction = profileInfo.inProduction;
-      this.swaggerEnabled = profileInfo.swaggerEnabled;
     });
   }
 

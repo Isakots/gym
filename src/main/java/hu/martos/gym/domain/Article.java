@@ -16,13 +16,13 @@ public class Article extends AbstractAuditingEntity implements Serializable {
     private String title;
 
     @Column(name = "type")
-    private String type;
+    private ArticleType type;
 
     @Column(name = "introduction")
     private String introduction;
 
     @Column(name = "main_text")
-    private String mainText;
+    private String content;
 
     public String getId() {
         return id;
@@ -40,11 +40,11 @@ public class Article extends AbstractAuditingEntity implements Serializable {
         this.title = title;
     }
 
-    public String getType() {
+    public ArticleType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(ArticleType type) {
         this.type = type;
     }
 
@@ -56,12 +56,12 @@ public class Article extends AbstractAuditingEntity implements Serializable {
         this.introduction = introduction;
     }
 
-    public String getMainText() {
-        return mainText;
+    public String getContent() {
+        return content;
     }
 
-    public void setMainText(String mainText) {
-        this.mainText = mainText;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     @Override
@@ -87,7 +87,7 @@ public class Article extends AbstractAuditingEntity implements Serializable {
             ", title='" + title + '\'' +
             ", type='" + type + '\'' +
             ", introduction='" + introduction + '\'' +
-            ", text='" + mainText + '\'' +
+            ", content='" + content + '\'' +
             '}';
     }
 }

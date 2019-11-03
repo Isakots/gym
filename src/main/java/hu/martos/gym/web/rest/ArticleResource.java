@@ -1,6 +1,7 @@
 package hu.martos.gym.web.rest;
 
 import hu.martos.gym.domain.Article;
+import hu.martos.gym.domain.ArticleType;
 import hu.martos.gym.repository.ArticleRepository;
 import hu.martos.gym.service.dto.ArticleDTO;
 import hu.martos.gym.web.rest.errors.BadRequestAlertException;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -98,6 +101,24 @@ public class ArticleResource {
             .map(article -> modelMapper.map(article, ArticleDTO.class))
             .collect(Collectors.toList());
     }
+
+    /**
+     * {@code GET  /articles} : get all the articles.
+     *
+
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of articles in body.
+     */
+    @GetMapping("/articles")
+    public List<ArticleDTO> getAllArticlesByType(@RequestBody ArticleType type) {
+        log.debug("REST request to get all Articles");
+        // TODO make minusMonths parameter configurable
+        return articleRepository.findAllByTypeAndCreatedDateIsAfter(type, LocalDateTime.now().minusMonths(12L))
+            .orElse(Collections.emptyList())
+            .stream()
+            .map(article -> modelMapper.map(article, ArticleDTO.class))
+            .collect(Collectors.toList());
+    }
+
 
     /**
      * {@code GET  /articles/:id} : get the "id" article.

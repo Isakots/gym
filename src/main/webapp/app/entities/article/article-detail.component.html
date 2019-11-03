@@ -4,22 +4,32 @@
             <div *ngIf="article">
                 <h2 id="page-heading">
                     <span>{{article.title}}</span>
+                    <button
+                        class="btn btn-danger float-right btn-sm"
+                        [routerLink]="['/article', { outlets: { popup: article.id + '/delete'} }]"
+                        replaceUrl="true"
+                        queryParamsHandling="merge"
+                        *jhiHasAnyAuthority="'ROLE_MEMBER'">
+                        <fa-icon [icon]="'times'"></fa-icon>
+                        <span class="d-none d-md-inline"
+                              jhiTranslate="gymApp.article.home.deleteLabel">Delete
+                        </span>
+                    </button>
+                    <button type="button"
+                            [routerLink]="['/article', article.id, 'edit']"
+                            class="btn btn-light float-right btn-sm"
+                            *jhiHasAnyAuthority="'ROLE_MEMBER'">
+                        <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                        <span class="d-none d-md-inline"
+                            jhiTranslate="entity.action.edit"> Edit</span>
+                    </button>
                     <button id="jh-create-entity"
-                            class="btn btn-primary float-right jh-create-entity create-tool"
+                            class="btn btn-primary float-right btn-sm"
                             [routerLink]="['/article/new']"
                             *jhiHasAnyAuthority="'ROLE_MEMBER'">
                         <fa-icon [icon]="'plus'"></fa-icon>
                         <span
-                            jhiTranslate="gymApp.article.home.createLabel">Create Article
-                        </span>
-                    </button>
-                    <button id="jh-delete-entity"
-                            class="btn btn-primary float-right jh-delete-entity create-tool"
-                            [routerLink]="['/article', article.id, 'delete']"
-                            *jhiHasAnyAuthority="'ROLE_MEMBER'">
-                        <fa-icon [icon]="'plus'"></fa-icon>
-                        <span
-                            jhiTranslate="gymApp.article.home.deleteLabel">Delete article
+                            jhiTranslate="gymApp.article.home.createLabel">Create
                         </span>
                     </button>
                 </h2>
@@ -27,7 +37,7 @@
                 <jhi-alert-error></jhi-alert-error>
 
                 <div class="ql-container ql-snow" style="border-width: 0;">
-                    <div class="ql-editor" [innerHTML]="article.mainText">
+                    <div class="ql-editor" [innerHTML]="article.content">
                     </div>
                 </div>
 
@@ -37,12 +47,6 @@
                     <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
                 </button>
 
-                <button type="button"
-                        [routerLink]="['/article', article.id, 'edit']"
-                        class="btn btn-primary"
-                        *jhiHasAnyAuthority="'ROLE_MEMBER'">
-                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
-                </button>
             </div>
         </div>
     </div>

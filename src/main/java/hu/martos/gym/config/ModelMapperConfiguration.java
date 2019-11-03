@@ -23,7 +23,7 @@ public class ModelMapperConfiguration {
                     map().setTitle(source.getTitle());
                     map().setType(source.getType());
                     map().setIntroduction(source.getIntroduction());
-                    map().setMainText(source.getMainText());
+                    map().setContent(source.getContent());
                     map().setCreatedDate(source.getCreatedDate());
                 }
             }
