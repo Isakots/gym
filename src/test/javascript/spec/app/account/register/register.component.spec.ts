@@ -56,7 +56,6 @@ describe('Component Tests', () => {
         expect(service.save).toHaveBeenCalledWith({
           email: '',
           password: 'password',
-          login: '',
           langKey: 'hu'
         });
         expect(comp.success).toEqual(true);
