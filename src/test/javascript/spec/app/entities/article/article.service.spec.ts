@@ -4,6 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { map, take } from 'rxjs/operators';
 import { ArticleService } from 'app/entities/article/article.service';
 import { Article, IArticle } from 'app/shared/model/article.model';
+import { ArticleType } from 'app/shared/enums/article-type.enum';
 
 describe('Service Tests', () => {
   describe('Article Service', () => {
@@ -21,7 +22,7 @@ describe('Service Tests', () => {
       service = injector.get(ArticleService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Article('0', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new Article('0', 'AAAAAAA', ArticleType.NEWS, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -58,7 +59,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             title: 'BBBBBB',
-            type: 'BBBBBB',
+            type: ArticleType.NEWS,
             text: 'BBBBBB'
           },
           elemDefault
@@ -78,7 +79,7 @@ describe('Service Tests', () => {
         const returnedFromService = Object.assign(
           {
             title: 'BBBBBB',
-            type: 'BBBBBB',
+            type: ArticleType.NEWS,
             text: 'BBBBBB'
           },
           elemDefault

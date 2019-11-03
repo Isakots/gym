@@ -12,25 +12,27 @@ import { ArticleService } from './article.service';
 })
 export class ArticleUpdateComponent implements OnInit {
   quillContent: string;
-
   isSaving: boolean;
-
   editorForm: FormGroup;
 
   constructor(protected articleService: ArticleService, protected activatedRoute: ActivatedRoute, private _router: Router) {}
 
   ngOnInit() {
+    this._initFormGroup();
+    this.isSaving = false;
+    this.activatedRoute.data.subscribe(({ article }) => {
+      this.quillContent = article.content;
+      this.updateForm(article);
+    });
+  }
+
+  private _initFormGroup() {
     this.editorForm = new FormGroup({
       id: new FormControl(''),
       title: new FormControl(''),
       type: new FormControl(''),
       introduction: new FormControl(''),
       editor: new FormControl('')
-    });
-    this.isSaving = false;
-    this.activatedRoute.data.subscribe(({ article }) => {
-      this.quillContent = article.mainText;
-      this.updateForm(article);
     });
   }
 
@@ -64,7 +66,7 @@ export class ArticleUpdateComponent implements OnInit {
       title: this.editorForm.get(['title']).value,
       type: this.editorForm.get(['type']).value,
       introduction: this.editorForm.get(['introduction']).value,
-      mainText: this.editorForm.get(['editor']).value
+      content: this.editorForm.get(['editor']).value
     };
   }
 

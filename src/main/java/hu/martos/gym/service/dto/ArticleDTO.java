@@ -1,5 +1,7 @@
 package hu.martos.gym.service.dto;
 
+import hu.martos.gym.domain.ArticleType;
+
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -8,11 +10,10 @@ public class ArticleDTO {
 
     private String id;
     private String title;
-    private String type;
+    private ArticleType type;
     private String introduction;
-    private String mainText;
+    private String content;
     private LocalDateTime createdDate;
-
 
     public String getId() {
         return id;
@@ -30,11 +31,11 @@ public class ArticleDTO {
         this.title = title;
     }
 
-    public String getType() {
+    public ArticleType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(ArticleType type) {
         this.type = type;
     }
 
@@ -46,12 +47,12 @@ public class ArticleDTO {
         this.introduction = introduction;
     }
 
-    public String getMainText() {
-        return mainText;
+    public String getContent() {
+        return content;
     }
 
-    public void setMainText(String mainText) {
-        this.mainText = mainText;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public LocalDateTime getCreatedDate() {
