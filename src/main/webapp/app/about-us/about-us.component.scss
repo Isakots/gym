@@ -1,0 +1,43 @@
+.flex-container {
+  padding: 20px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.flex-item {
+  display: block;
+  width: 32.3%;
+  padding: 25px 10px 10px;
+  margin: 0.5%;
+  background: #fff3e0;
+}
+.flex-item .center {
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+  width: 100%;
+}
+
+.card-text {
+  text-align: center;
+}
+.card-title {
+  text-align: center;
+}
+
+@media only screen and (max-width: 1200px) {
+  .flex-item {
+    width: 48%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .flex-item {
+    width: 98%;
+  }
+}

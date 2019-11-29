@@ -22,6 +22,7 @@ import * as moment from 'moment';
 import { ActiveMenuDirective, ErrorComponent, FooterComponent, JhiMainComponent, NavbarComponent, PageRibbonComponent } from './layouts';
 import { QuillModule } from 'ngx-quill';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AboutUsModule } from 'app/about-us/about-us.module';
 
 @NgModule({
   imports: [
@@ -29,7 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-' }),
     NgJhipsterModule.forRoot({
       // set below to true to make alerts look like toast
-      alertAsToast: false,
+      alertAsToast: true,
       alertTimeout: 5000,
       i18nEnabled: true,
       defaultI18nLang: 'hu'
@@ -42,7 +43,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     GymEntityModule,
     GymAppRoutingModule,
     ReactiveFormsModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    AboutUsModule
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   providers: [

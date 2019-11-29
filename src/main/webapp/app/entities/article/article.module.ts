@@ -4,31 +4,17 @@ import { JhiLanguageService } from 'ng-jhipster';
 import { JhiLanguageHelper } from 'app/core';
 
 import { GymSharedModule } from 'app/shared';
-import {
-  ArticleComponent,
-  ArticleDeleteDialogComponent,
-  ArticleDeletePopupComponent,
-  ArticleDetailComponent,
-  articlePopupRoute,
-  articleRoute,
-  ArticleUpdateComponent
-} from './';
+import { ArticleDeleteDialogComponent, ArticleDeletePopupComponent, ArticleDetailComponent, ArticleUpdateComponent } from './';
 import { QuillModule } from 'ngx-quill';
+import { articlePopupRoute, articleRoute } from 'app/entities/article/article.route';
 
 const ENTITY_STATES = [...articleRoute, ...articlePopupRoute];
 
 @NgModule({
   imports: [GymSharedModule, RouterModule.forChild(ENTITY_STATES), QuillModule],
-  declarations: [
-    ArticleComponent,
-    ArticleDetailComponent,
-    ArticleUpdateComponent,
-    ArticleDeleteDialogComponent,
-    ArticleDeletePopupComponent
-  ],
-  entryComponents: [ArticleComponent, ArticleUpdateComponent, ArticleDeleteDialogComponent, ArticleDeletePopupComponent],
+  declarations: [ArticleDetailComponent, ArticleUpdateComponent, ArticleDeleteDialogComponent, ArticleDeletePopupComponent],
+  entryComponents: [ArticleUpdateComponent, ArticleDeleteDialogComponent, ArticleDeletePopupComponent],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
-  exports: [ArticleComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class GymArticleModule {

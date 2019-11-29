@@ -6,7 +6,6 @@ import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { Article, IArticle } from 'app/shared/model/article.model';
 import { ArticleService } from './article.service';
-import { ArticleComponent } from './article.component';
 import { ArticleDetailComponent } from './article-detail.component';
 import { ArticleUpdateComponent } from './article-update.component';
 import { ArticleDeletePopupComponent } from './article-delete-dialog.component';
@@ -28,15 +27,43 @@ export class ArticleResolve implements Resolve<IArticle> {
 }
 
 export const articleRoute: Routes = [
-  {
-    path: '',
-    component: ArticleComponent,
-    data: {
-      pageTitle: 'gymApp.article.home.title'
-    },
-    canActivate: [UserRouteAccessService],
-    outlet: 'articles'
-  },
+  // TODO pageTitles
+  // {
+  //   path: '',
+  //   component: ArticleComponent,
+  //   data: {
+  //     pageTitle: 'gymApp.article.home.title'
+  //   },
+  //   canActivate: [UserRouteAccessService],
+  //   outlet: 'articles'
+  // },
+  // {
+  //   path: 'about-us',
+  //   component: ArticleComponent,
+  //   data: {
+  //     pageTitle: 'gymApp.article.home.title'
+  //   },
+  //   canActivate: [UserRouteAccessService],
+  //   outlet: 'articles'
+  // },
+  // {
+  //   path: 'gym',
+  //   component: ArticleComponent,
+  //   data: {
+  //     pageTitle: 'gymApp.article.home.title'
+  //   },
+  //   canActivate: [UserRouteAccessService],
+  //   outlet: 'articles'
+  // },
+  // {
+  //   path: 'nutrition',
+  //   component: ArticleComponent,
+  //   data: {
+  //     pageTitle: 'gymApp.article.home.title'
+  //   },
+  //   canActivate: [UserRouteAccessService],
+  //   outlet: 'articles'
+  // },
   {
     path: ':id/view',
     component: ArticleDetailComponent,
