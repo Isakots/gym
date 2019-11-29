@@ -10,6 +10,10 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
     RouterModule.forRoot(
       [
         {
+          path: 'about-us',
+          loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule)
+        },
+        {
           path: 'admin',
           loadChildren: () => import('./admin/admin.module').then(m => m.GymAdminModule)
         },

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -6,29 +6,36 @@ import { JhiAlertService, JhiEventManager } from 'ng-jhipster';
 
 import { IArticle } from 'app/shared/model/article.model';
 import { AccountService } from 'app/core';
-import { ArticleService } from './article.service';
+import { ArticleService } from 'app/entities/article';
+import { ArticleType } from 'app/shared/enums/article-type.enum';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'jhi-article',
-  templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss']
+  selector: 'timeline',
+  templateUrl: './timeline.component.html',
+  styleUrls: ['./timeline.component.scss']
 })
-export class ArticleComponent implements OnInit, OnDestroy {
+export class TimelineComponent implements OnInit {
   articles: IArticle[];
   currentAccount: any;
   eventSubscriber: Subscription;
   content: string;
 
+  // TODO I should create ng-templates separately for AboutUs, Gym, Nutrition
+  //  and other pages which contain articles... the problem is the routing..
+
   constructor(
     protected articleService: ArticleService,
     protected jhiAlertService: JhiAlertService,
     protected eventManager: JhiEventManager,
-    protected accountService: AccountService
+    protected accountService: AccountService,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   loadAll() {
+    console.log('Actual route is: ', this.activatedRoute.snapshot.url);
     this.articleService
-      .query()
+      .query({ type: ArticleType.NEWS })
       .pipe(
         filter((res: HttpResponse<IArticle[]>) => res.ok),
         map((res: HttpResponse<IArticle[]>) => res.body)
