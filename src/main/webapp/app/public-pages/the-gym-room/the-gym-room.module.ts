@@ -4,18 +4,18 @@ import { JhiLanguageService } from 'ng-jhipster';
 import { JhiLanguageHelper } from 'app/core';
 
 import { GymSharedModule } from 'app/shared';
-import { aboutUsRoute } from 'app/about-us/about-us.route';
-import { AboutUsComponent } from 'app/about-us/about-us.component';
+import { TheGymRoomComponent } from 'app/public-pages/the-gym-room/the-gym-room.component';
+import { theGymRoomRoute } from 'app/public-pages/the-gym-room/the-gym-room.route';
 
-const ENTITY_STATES = [...aboutUsRoute];
+const ENTITY_STATES = [...theGymRoomRoute];
 
 @NgModule({
   imports: [GymSharedModule, RouterModule.forChild(ENTITY_STATES)],
-  declarations: [AboutUsComponent],
+  declarations: [TheGymRoomComponent],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AboutUsModule {
+export class TheGymRoomModule {
   constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
     this.languageHelper.language.subscribe((languageKey: string) => {
       if (languageKey !== undefined) {

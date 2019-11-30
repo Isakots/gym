@@ -14,7 +14,7 @@ import { NotificationInterceptor } from './blocks/interceptor/notification.inter
 import { GymSharedModule } from 'app/shared';
 import { GymCoreModule } from 'app/core';
 import { GymAppRoutingModule } from './app-routing.module';
-import { GymHomeModule } from './home/home.module';
+import { GymHomeModule } from './public-pages/home/home.module';
 import { GymAccountModule } from './account/account.module';
 import { GymEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
@@ -22,7 +22,9 @@ import * as moment from 'moment';
 import { ActiveMenuDirective, ErrorComponent, FooterComponent, JhiMainComponent, NavbarComponent, PageRibbonComponent } from './layouts';
 import { QuillModule } from 'ngx-quill';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AboutUsModule } from 'app/about-us/about-us.module';
+import { AboutUsModule } from 'app/public-pages/about-us/about-us.module';
+import { PublicPagesModule } from 'app/public-pages/public-pages.module';
+import { TheGymRoomModule } from 'app/public-pages/the-gym-room/the-gym-room.module';
 
 @NgModule({
   imports: [
@@ -44,7 +46,9 @@ import { AboutUsModule } from 'app/about-us/about-us.module';
     GymAppRoutingModule,
     ReactiveFormsModule,
     QuillModule.forRoot(),
-    AboutUsModule
+    AboutUsModule,
+    PublicPagesModule,
+    TheGymRoomModule
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   providers: [
