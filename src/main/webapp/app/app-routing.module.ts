@@ -10,8 +10,16 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
     RouterModule.forRoot(
       [
         {
+          path: 'nutrition',
+          loadChildren: () => import('./public-pages/nutrition/nutrition.module').then(m => m.NutritionModule)
+        },
+        {
+          path: 'gym',
+          loadChildren: () => import('./public-pages/the-gym-room/the-gym-room.module').then(m => m.TheGymRoomModule)
+        },
+        {
           path: 'about-us',
-          loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule)
+          loadChildren: () => import('./public-pages/about-us/about-us.module').then(m => m.AboutUsModule)
         },
         {
           path: 'admin',
