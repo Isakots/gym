@@ -14,7 +14,6 @@ import { NotificationInterceptor } from './blocks/interceptor/notification.inter
 import { GymSharedModule } from 'app/shared';
 import { GymCoreModule } from 'app/core';
 import { GymAppRoutingModule } from './app-routing.module';
-import { GymHomeModule } from './public-pages/home/home.module';
 import { GymAccountModule } from './account/account.module';
 import { GymEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
@@ -22,9 +21,6 @@ import * as moment from 'moment';
 import { ActiveMenuDirective, ErrorComponent, FooterComponent, JhiMainComponent, NavbarComponent, PageRibbonComponent } from './layouts';
 import { QuillModule } from 'ngx-quill';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AboutUsModule } from 'app/public-pages/about-us/about-us.module';
-import { PublicPagesModule } from 'app/public-pages/public-pages.module';
-import { TheGymRoomModule } from 'app/public-pages/the-gym-room/the-gym-room.module';
 
 @NgModule({
   imports: [
@@ -39,16 +35,12 @@ import { TheGymRoomModule } from 'app/public-pages/the-gym-room/the-gym-room.mod
     }),
     GymSharedModule.forRoot(),
     GymCoreModule,
-    GymHomeModule,
     GymAccountModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     GymEntityModule,
     GymAppRoutingModule,
     ReactiveFormsModule,
-    QuillModule.forRoot(),
-    AboutUsModule,
-    PublicPagesModule,
-    TheGymRoomModule
+    QuillModule.forRoot()
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   providers: [
