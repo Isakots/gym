@@ -20,7 +20,7 @@ export class ArticleDeleteDialogComponent {
     this.activeModal.dismiss('cancel');
   }
 
-  confirmDelete(id: number) {
+  confirmDelete(id: string) {
     this.articleService.delete(id).subscribe(response => {
       this.eventManager.broadcast({
         name: 'articleListModification',

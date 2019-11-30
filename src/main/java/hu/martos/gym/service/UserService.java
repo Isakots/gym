@@ -9,9 +9,10 @@ import hu.martos.gym.security.AuthoritiesConstants;
 import hu.martos.gym.security.SecurityUtils;
 import hu.martos.gym.service.dto.UserDTO;
 import hu.martos.gym.service.util.RandomGeneratorUtil;
+import hu.martos.gym.web.rest.errors.AccountResourceException;
 import hu.martos.gym.web.rest.errors.EmailAlreadyUsedException;
+import hu.martos.gym.web.rest.errors.EmailNotFoundException;
 import hu.martos.gym.web.rest.errors.InvalidPasswordException;
-import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -37,50 +38,55 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final AuthorityRepository authorityRepository;
-    private final ModelMapper modelMapper;
+    private final MailService mailService;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository, ModelMapper modelMapper) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder,
+                       AuthorityRepository authorityRepository, MailService mailService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.authorityRepository = authorityRepository;
-        this.modelMapper = modelMapper;
+        this.mailService = mailService;
     }
 
-    public Optional<User> activateRegistration(String key) {
+    public void activateRegistration(String key) {
         LOGGER.debug("Activating user for activation key {}", key);
-        return userRepository.findOneByActivationKey(key)
+        userRepository.findOneByActivationKey(key)
             .map(user -> {
                 // activate given user for the registration key.
                 user.setActivated(true);
                 user.setActivationKey(null);
                 LOGGER.debug("Activated user: {}", user);
                 return user;
-            });
+            })
+            .orElseThrow(() -> new AccountResourceException("No user was found for this activation key"));
     }
 
-    public Optional<User> completePasswordReset(String newPassword, String key) {
+    public void completePasswordReset(String newPassword, String key) {
         LOGGER.debug("Reset user password for reset key {}", key);
-        return userRepository.findOneByResetKey(key)
+        userRepository.findOneByResetKey(key)
             .filter(user -> user.getResetDate().isAfter(Instant.now().minusSeconds(86400)))
             .map(user -> {
                 user.setPassword(passwordEncoder.encode(newPassword));
                 user.setResetKey(null);
                 user.setResetDate(null);
                 return user;
-            });
+            })
+            .orElseThrow(() -> new AccountResourceException("No user was found for this reset key"));
     }
 
-    public Optional<User> requestPasswordReset(String mail) {
-        return userRepository.findOneByEmailIgnoreCase(mail)
-            .filter(User::getActivated)
-            .map(user -> {
-                user.setResetKey(RandomGeneratorUtil.generateResetKey());
-                user.setResetDate(Instant.now());
-                return user;
-            });
+    public void requestPasswordReset(String mail) {
+        User user = userRepository.findOneByEmailIgnoreCase(mail)
+            .filter(User::getActivated) // ?
+            .map(foundUser -> {
+                foundUser.setResetKey(RandomGeneratorUtil.generateResetKey());
+                foundUser.setResetDate(Instant.now());
+                return foundUser;
+            }).orElseThrow(EmailNotFoundException::new);
+
+        mailService.sendPasswordResetMail(user);
     }
 
-    public User registerUser(UserDTO userDTO, String password) {
+    public void registerUser(UserDTO userDTO, String password) {
         userRepository.findOneByEmailIgnoreCase(userDTO.getEmail()).ifPresent(existingUser -> {
             boolean removed = removeNonActivatedUser(existingUser);
             if (!removed) {
@@ -105,37 +111,17 @@ public class UserService {
         newUser.setAuthorities(authorities);
         userRepository.save(newUser);
         LOGGER.debug("Created Information for User: {}", newUser);
-        return newUser;
+
+        mailService.sendActivationEmail(newUser);
     }
 
-    private boolean removeNonActivatedUser(User existingUser){
+    private boolean removeNonActivatedUser(User existingUser) {
         if (existingUser.getActivated()) {
-             return false;
+            return false;
         }
         userRepository.delete(existingUser);
         userRepository.flush();
         return true;
-    }
-
-    /**
-     * Update basic information (first name, last name, email, language) for the current user.
-     *
-     * @param firstName first name of user.
-     * @param lastName  last name of user.
-     * @param email     email id of user.
-     * @param langKey   language key.
-     * @param imageUrl  image URL of user.
-     */
-    public void updateUser(String firstName, String lastName, String email, String langKey, String imageUrl) {
-        SecurityUtils.getCurrentUserLogin()
-            .flatMap(userRepository::findOneByEmailIgnoreCase)
-            .ifPresent(user -> {
-                user.setFirstName(firstName);
-                user.setLastName(lastName);
-                user.setLangKey(langKey);
-                user.setImageUrl(imageUrl);
-                LOGGER.debug("Changed Information for User: {}", user);
-            });
     }
 
     /**
@@ -178,8 +164,14 @@ public class UserService {
         return SecurityUtils.getCurrentUserLogin().flatMap(userRepository::findOneWithAuthoritiesByEmailIgnoreCase);
     }
 
+    @Transactional(readOnly = true)
+    public Optional<User> findOneByEmailIgnoreCase(String email) {
+        return userRepository.findOneByEmailIgnoreCase(email);
+    }
+
     /**
      * Gets a list of all the authorities.
+     *
      * @return a list of all the authorities.
      */
     public List<String> getAuthorities() {

@@ -6,6 +6,8 @@ const rxPaths = require('rxjs/_esm5/path-mapping');
 const MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin");
 const utils = require('./utils.js');
 
+
+// TODO learn how webpack works
 module.exports = (options) => ({
     resolve: {
         extensions: ['.ts', '.js'],
@@ -68,10 +70,11 @@ module.exports = (options) => ({
             }
         }),
         new CopyWebpackPlugin([
-            // { from: './node_modules/swagger-ui/dist/css', to: 'swagger-ui/dist/css' },
-            // { from: './node_modules/swagger-ui/dist/lib', to: 'swagger-ui/dist/lib' },
-            // { from: './node_modules/swagger-ui/dist/swagger-ui.js', to: 'swagger-ui/dist/swagger-ui.js' },
-            // { from: './src/main/webapp/swagger-ui/', to: 'swagger-ui' },
+          // FYI: Swagger is not working.
+          // TODO Make it work
+          //   { from: './node_modules/swagger-ui/dist/swagger-ui.css', to: 'swagger-ui/dist/swagger-ui.css' },
+          //   { from: './node_modules/swagger-ui/dist/swagger-ui.js', to: 'swagger-ui/dist/swagger-ui.js' },
+          //   { from: './src/main/webapp/swagger-ui/', to: 'swagger-ui' },
             { from: './src/main/webapp/content/', to: 'content' },
             { from: './src/main/webapp/favicon.ico', to: 'favicon.ico' },
             { from: './src/main/webapp/manifest.webapp', to: 'manifest.webapp' },
@@ -93,6 +96,8 @@ module.exports = (options) => ({
             chunksSortMode: 'manual',
             inject: 'body'
         }),
+        // TODO for PROD mode set context path the same as in Tomcat (PLUS a Slash at the end!!)
+        // https://github.com/jhipster/generator-jhipster/issues/9829
         new BaseHrefWebpackPlugin({ baseHref: '/' })
     ]
 });

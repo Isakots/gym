@@ -1,6 +1,5 @@
 <div>
     <div class="row justify-content-center">
-
         <div class="col-md-8">
             <h1 jhiTranslate="register.title">Registration</h1>
             <hr>
@@ -319,7 +318,7 @@
 
         <div class="row justify-content-md-center">
             <div class="col-md-8 extra-margin-top">
-                <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary" (click)="register()"
+                <button type="submit" [disabled]="registerForm.invalid && registerForm.dirty" class="btn btn-primary btn-block" (click)="register()"
                         jhiTranslate="register.form.button">Register
                 </button>
             </div>

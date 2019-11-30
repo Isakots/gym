@@ -14,7 +14,6 @@ import { NotificationInterceptor } from './blocks/interceptor/notification.inter
 import { GymSharedModule } from 'app/shared';
 import { GymCoreModule } from 'app/core';
 import { GymAppRoutingModule } from './app-routing.module';
-import { GymHomeModule } from './home/home.module';
 import { GymAccountModule } from './account/account.module';
 import { GymEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
@@ -29,14 +28,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-' }),
     NgJhipsterModule.forRoot({
       // set below to true to make alerts look like toast
-      alertAsToast: false,
+      alertAsToast: true,
       alertTimeout: 5000,
       i18nEnabled: true,
       defaultI18nLang: 'hu'
     }),
     GymSharedModule.forRoot(),
     GymCoreModule,
-    GymHomeModule,
     GymAccountModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     GymEntityModule,

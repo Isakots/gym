@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Article, IArticle } from 'app/shared/model/article.model';
 import { ArticleService } from './article.service';
@@ -12,25 +12,27 @@ import { ArticleService } from './article.service';
 })
 export class ArticleUpdateComponent implements OnInit {
   quillContent: string;
-
   isSaving: boolean;
-
   editorForm: FormGroup;
 
-  constructor(protected articleService: ArticleService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(protected articleService: ArticleService, protected activatedRoute: ActivatedRoute, private _router: Router) {}
 
   ngOnInit() {
+    this._initFormGroup();
+    this.isSaving = false;
+    this.activatedRoute.data.subscribe(({ article }) => {
+      this.quillContent = article.content;
+      this.updateForm(article);
+    });
+  }
+
+  private _initFormGroup() {
     this.editorForm = new FormGroup({
       id: new FormControl(''),
       title: new FormControl(''),
       type: new FormControl(''),
       introduction: new FormControl(''),
       editor: new FormControl('')
-    });
-    this.isSaving = false;
-    this.activatedRoute.data.subscribe(({ article }) => {
-      this.quillContent = article.mainText;
-      this.updateForm(article);
     });
   }
 
@@ -64,17 +66,17 @@ export class ArticleUpdateComponent implements OnInit {
       title: this.editorForm.get(['title']).value,
       type: this.editorForm.get(['type']).value,
       introduction: this.editorForm.get(['introduction']).value,
-      mainText: this.editorForm.get(['editor']).value
+      content: this.editorForm.get(['editor']).value
     };
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IArticle>>) {
-    result.subscribe(() => this.onSaveSuccess(), () => this.onSaveError());
+    result.subscribe(answer => this.onSaveSuccess(answer.body.id), () => this.onSaveError());
   }
 
-  protected onSaveSuccess() {
+  protected onSaveSuccess(id: string) {
     this.isSaving = false;
-    this.previousState();
+    this._router.navigate(['/article', id, 'view']);
   }
 
   protected onSaveError() {
