@@ -1,18 +1,20 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { GymSharedModule } from 'app/shared';
 
 import {
-  PasswordStrengthBarComponent,
-  RegisterComponent,
+  accountState,
   ActivateComponent,
   PasswordComponent,
-  PasswordResetInitComponent,
   PasswordResetFinishComponent,
-  SettingsComponent,
-  accountState
+  PasswordResetInitComponent,
+  PasswordStrengthBarComponent,
+  RegisterComponent,
+  SettingsComponent
 } from './';
+import { FileUploadComponent } from 'app/account/settings/file-upload/file-upload.component';
+import { FormUploadComponent } from 'app/account/settings/form-upload/form-upload.component';
 
 @NgModule({
   imports: [GymSharedModule, RouterModule.forChild(accountState)],
@@ -23,7 +25,9 @@ import {
     PasswordStrengthBarComponent,
     PasswordResetInitComponent,
     PasswordResetFinishComponent,
-    SettingsComponent
+    SettingsComponent,
+    FileUploadComponent,
+    FormUploadComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
       this.account = account;
     });
     this.registerAuthenticationSuccess();
-    this.images = [1, 2, 3].map(() => `https://picsum.photos/1780/350?random&t=${Math.random()}`);
+    this.images = [1, 2, 3].map(() => `https://picsum.photos/1920/360?random&t=${Math.random()}`);
   }
 
   registerAuthenticationSuccess() {
