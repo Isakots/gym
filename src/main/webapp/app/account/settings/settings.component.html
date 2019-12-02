@@ -9,7 +9,18 @@
 
             <jhi-alert-error></jhi-alert-error>
 
+            <div class="container" >
+
+                <form-upload></form-upload>
+
+                <br/>
+                <br/>
+                <file-upload></file-upload>
+
+            </div>
+
             <form name="form" role="form" (ngSubmit)="save()" [formGroup]="settingsForm" novalidate>
+
 
                 <div class="form-group">
                     <label class="form-control-label" for="firstName" jhiTranslate="settings.form.firstname">First Name</label>

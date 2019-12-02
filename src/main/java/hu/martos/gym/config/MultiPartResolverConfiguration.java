@@ -6,6 +6,7 @@ package hu.martos.gym.config;
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.context.annotation.PropertySource;
 //import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+//import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 //
 //@Configuration
 //@EnableConfigurationProperties(MultiPartProperties.class)
@@ -24,6 +25,8 @@ package hu.martos.gym.config;
 //    @Bean
 //    public CommonsMultipartResolver multipartResolver() {
 //        CommonsMultipartResolver resolver = new CommonsMultipartResolver();
+//        StandardServletMultipartResolver resolver1 = new StandardServletMultipartResolver();
+//        resolver1.resolveMultipart()
 //        resolver.setDefaultEncoding("utf-8");
 //        resolver.setMaxUploadSize(multiPartProperties.getMaxRequestSize());
 //        resolver.setMaxUploadSizePerFile(multiPartProperties.getMaxFileSize());

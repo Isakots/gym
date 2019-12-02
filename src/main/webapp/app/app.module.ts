@@ -21,6 +21,10 @@ import * as moment from 'moment';
 import { ActiveMenuDirective, ErrorComponent, FooterComponent, JhiMainComponent, NavbarComponent, PageRibbonComponent } from './layouts';
 import { QuillModule } from 'ngx-quill';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AboutUsComponent } from 'app/public-pages/about-us/about-us.component';
+import { TheGymRoomComponent } from 'app/public-pages/the-gym-room/the-gym-room.component';
+import { GymHomeModule } from 'app/public-pages/home/home.module';
+import { PublicPagesModule } from 'app/public-pages/public-pages.module';
 
 @NgModule({
   imports: [
@@ -40,9 +44,20 @@ import { ReactiveFormsModule } from '@angular/forms';
     GymEntityModule,
     GymAppRoutingModule,
     ReactiveFormsModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    GymHomeModule,
+    PublicPagesModule
   ],
-  declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+  declarations: [
+    JhiMainComponent,
+    NavbarComponent,
+    ErrorComponent,
+    PageRibbonComponent,
+    ActiveMenuDirective,
+    FooterComponent,
+    AboutUsComponent,
+    TheGymRoomComponent
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
