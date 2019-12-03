@@ -4,11 +4,11 @@ import {UserRouteAccessService} from 'app/core';
 import {ProfileComponent} from 'app/account';
 
 export const profileRoute: Route = {
-  path: 'settings',
+  path: 'profile',
   component: ProfileComponent,
   data: {
     authorities: ['ROLE_USER'],
-    pageTitle: 'global.menu.account.settings'
+    pageTitle: 'global.menu.account.profile'
   },
   canActivate: [UserRouteAccessService]
 };
