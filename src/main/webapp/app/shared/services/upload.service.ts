@@ -1,18 +1,18 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { SERVER_API_URL } from 'app/app.constants';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {SERVER_API_URL} from 'app/app.constants';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UploadFileService {
+export class FileService {
   public uploadUrl = SERVER_API_URL + 'api/upload';
   public downloadUrl = SERVER_API_URL + '/api/download';
 
   constructor(private http: HttpClient) {}
 
-  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+  uploadImage(file: File): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
     formdata.append('file', file);
     const req = new HttpRequest('POST', this.uploadUrl, formdata, {

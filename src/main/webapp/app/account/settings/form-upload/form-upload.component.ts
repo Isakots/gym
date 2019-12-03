@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { UploadFileService } from 'app/shared/services/upload.service';
+import {Component, OnInit} from '@angular/core';
+import {HttpEventType, HttpResponse} from '@angular/common/http';
+import {FileService} from 'app/shared/services/upload.service';
 
 @Component({
   selector: 'form-upload',
@@ -11,7 +11,7 @@ export class FormUploadComponent implements OnInit {
   currentFileUpload: File;
   progress: { percentage: number } = { percentage: 0 };
 
-  constructor(private uploadService: UploadFileService) {}
+  constructor(private uploadService: FileService) {}
 
   ngOnInit() {}
 
@@ -23,7 +23,7 @@ export class FormUploadComponent implements OnInit {
     this.progress.percentage = 0;
 
     this.currentFileUpload = this.selectedFiles.item(0);
-    this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+    this.uploadService.uploadImage(this.currentFileUpload).subscribe(event => {
       if (event.type === HttpEventType.UploadProgress) {
         this.progress.percentage = Math.round((100 * event.loaded) / event.total);
       } else if (event instanceof HttpResponse) {

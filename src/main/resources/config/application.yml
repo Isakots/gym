@@ -157,3 +157,8 @@ jhipster:
 # ===================================================================
 
 # application:
+# extensions separated with slash
+gym:
+  image:
+    supported-extensions: jpg/png/gif
+    uploadDirectory: D:/workspace/uploadDir

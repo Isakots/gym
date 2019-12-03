@@ -124,12 +124,6 @@ public class UserService {
         return true;
     }
 
-    /**
-     * Update all information for a specific user, and return the modified user.
-     *
-     * @param userDTO user to update.
-     * @return updated user.
-     */
     public Optional<UserDTO> updateUser(UserDTO userDTO) {
         // TODO member can modify only the user's role!!
         return Optional.of(new UserDTO());
@@ -169,13 +163,13 @@ public class UserService {
         return userRepository.findOneByEmailIgnoreCase(email);
     }
 
-    /**
-     * Gets a list of all the authorities.
-     *
-     * @return a list of all the authorities.
-     */
     public List<String> getAuthorities() {
         return authorityRepository.findAll().stream().map(Authority::getName).collect(Collectors.toList());
     }
 
+    @Transactional
+    public void saveUserImage(String fileNameToSave, User user) {
+        user.setImageUrl(fileNameToSave);
+        userRepository.save(user);
+    }
 }

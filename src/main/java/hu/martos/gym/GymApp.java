@@ -2,6 +2,8 @@ package hu.martos.gym;
 
 import hu.martos.gym.config.ApplicationProperties;
 import hu.martos.gym.config.DefaultProfileUtil;
+import hu.martos.gym.config.properties.ImageProperties;
+import hu.martos.gym.config.properties.MultiPartProperties;
 import io.github.jhipster.config.JHipsterConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -26,7 +28,7 @@ import java.util.Collection;
     MongoDataAutoConfiguration.class,
     EmbeddedMongoAutoConfiguration.class
 })
-@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class})
+@EnableConfigurationProperties({LiquibaseProperties.class, ApplicationProperties.class, ImageProperties.class, MultiPartProperties.class})
 public class GymApp implements InitializingBean {
 
     private static final Logger log = LoggerFactory.getLogger(GymApp.class);
