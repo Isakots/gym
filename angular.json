@@ -25,7 +25,6 @@
           "skipTests": true
         }
       },
-      "prefix": "jhi",
       "architect": {}
     }
   },

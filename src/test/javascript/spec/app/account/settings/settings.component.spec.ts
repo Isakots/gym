@@ -1,29 +1,29 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
-import { throwError } from 'rxjs';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {FormBuilder} from '@angular/forms';
+import {throwError} from 'rxjs';
 
-import { GymTestModule } from '../../../test.module';
-import { AccountService } from 'app/core';
-import { SettingsComponent } from 'app/account/settings/settings.component';
+import {GymTestModule} from '../../../test.module';
+import {AccountService} from 'app/core';
+import {ProfileComponent} from '../../../../../../main/webapp/app/account/settings/profile.component';
 
 describe('Component Tests', () => {
   describe('SettingsComponent', () => {
-    let comp: SettingsComponent;
-    let fixture: ComponentFixture<SettingsComponent>;
+    let comp: ProfileComponent;
+    let fixture: ComponentFixture<ProfileComponent>;
     let mockAuth: any;
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
         imports: [GymTestModule],
-        declarations: [SettingsComponent],
+        declarations: [ProfileComponent],
         providers: [FormBuilder]
       })
-        .overrideTemplate(SettingsComponent, '')
+        .overrideTemplate(ProfileComponent, '')
         .compileComponents();
     }));
 
     beforeEach(() => {
-      fixture = TestBed.createComponent(SettingsComponent);
+      fixture = TestBed.createComponent(ProfileComponent);
       comp = fixture.componentInstance;
       mockAuth = fixture.debugElement.injector.get(AccountService);
     });

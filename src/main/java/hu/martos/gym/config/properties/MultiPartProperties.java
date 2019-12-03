@@ -1,11 +1,15 @@
 package hu.martos.gym.config.properties;
 
-//@ConfigurationProperties(prefix = "spring.servlet.multipart")
-//public class MultiPartProperties {
-//
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "spring.servlet.multipart")
+public class MultiPartProperties {
+
+    // TODO configure multipartresolver
 //    private long maxFileSize;
 //    private long maxRequestSize;
-//
+    private String location;
+
 //    public long getMaxFileSize() {
 //        return maxFileSize;
 //    }
@@ -21,4 +25,12 @@ package hu.martos.gym.config.properties;
 //    public void setMaxRequestSize(long maxRequestSize) {
 //        this.maxRequestSize = maxRequestSize;
 //    }
-//}
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+}

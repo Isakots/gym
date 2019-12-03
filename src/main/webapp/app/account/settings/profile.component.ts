@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { JhiLanguageService } from 'ng-jhipster';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, Validators} from '@angular/forms';
+import {JhiLanguageService} from 'ng-jhipster';
 
-import { AccountService, JhiLanguageHelper } from 'app/core';
+import {AccountService, JhiLanguageHelper} from 'app/core';
 
 @Component({
-  selector: 'jhi-settings',
-  templateUrl: './settings.component.html'
+  selector: 'profile-view',
+  templateUrl: './profile.component.html'
 })
-export class SettingsComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   error: string;
   success: string;
   languages: any[];
