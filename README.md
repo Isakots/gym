@@ -1,4 +1,4 @@
-# Gym Applicaiton
+# Gym Application
 
 ## Development
 

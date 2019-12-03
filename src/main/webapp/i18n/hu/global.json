@@ -17,7 +17,7 @@
       },
       "account": {
         "main": "Profil",
-        "settings": "Beállítások",
+        "profile": "Személyes adatok",
         "password": "Jelszó",
         "sessions": "Munkamenetek",
         "login": "Bejelentkezés",

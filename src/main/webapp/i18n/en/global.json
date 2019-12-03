@@ -17,7 +17,7 @@
       },
       "account": {
         "main": "Account",
-        "settings": "Settings",
+        "profile": "Personal data",
         "password": "Password",
         "sessions": "Sessions",
         "login": "Sign in",
